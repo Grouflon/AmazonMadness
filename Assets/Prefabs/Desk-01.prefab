@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4181750660549438}
   - component: {fileID: 33404807122653662}
   - component: {fileID: 23273713025260600}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,8 +36,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4002775439792238}
-  - component: {fileID: 95971508828034454}
-  m_Layer: 0
+  - component: {fileID: 64603937222952134}
+  m_Layer: 10
   m_Name: Desk-01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1965174893299248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.2422037, y: 1.7168777e-17, z: -0.7732129}
+  m_LocalPosition: {x: -1.94, y: 1.0061641e-16, z: 6.06}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4181750660549438}
@@ -85,7 +85,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ded1c47fe7944d84d87a5cd28ff9f5b4, type: 2}
+  - {fileID: 2100000, guid: 3095b61496f2b964ba628bae9aa6c5ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,20 +112,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1758751608772628}
   m_Mesh: {fileID: 4300000, guid: 1f90fa7c754b7b34e9d504e372d53329, type: 3}
---- !u!95 &95971508828034454
-Animator:
-  serializedVersion: 3
+--- !u!64 &64603937222952134
+MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1965174893299248}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 1f90fa7c754b7b34e9d504e372d53329, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 1f90fa7c754b7b34e9d504e372d53329, type: 3}
