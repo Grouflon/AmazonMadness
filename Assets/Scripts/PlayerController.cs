@@ -58,18 +58,34 @@ public class PlayerController : MonoBehaviour {
             
             if (grabbableObjects.Count != 0)
             {
-                PackageController package = grabbableObjects[0].GetComponent<PackageController>();
-                if (package != null)
+                PackageController closestPackage = null;
+                float closestDistanceSquared = float.MaxValue;
+
+                foreach(GameObject grabbableObject in grabbableObjects)
                 {
-                    package.Destroyed += OnPackageDestroyed;
+                    PackageController package = grabbableObject.GetComponent<PackageController>();
+                    if (package == null)
+                        continue;
+
+                    float distanceSquared = (package.transform.position - grabZone.transform.position).sqrMagnitude;
+                    if (distanceSquared < closestDistanceSquared)
+                    {
+                        closestPackage = package;
+                        closestDistanceSquared = distanceSquared;
+                    }
+                }
+
+                if (closestPackage != null)
+                {
+                    closestPackage.Destroyed += OnPackageDestroyed;
                     if (input.IsGrabPressed())
                     {
-                        GrabObject(package);
+                        GrabObject(closestPackage);
                     }
                     else
                     {
-                        package.outline.enabled = true;
-                        m_outlinedObjects.Add(package);
+                        closestPackage.outline.enabled = true;
+                        m_outlinedObjects.Add(closestPackage);
                     }
                 }
             }

@@ -35,6 +35,7 @@ public class PackageController : MonoBehaviour {
     [Header("Game")]
     public bool canValidateWinCondition = true;
     public float destructionTime = 1.0f;
+    public AnimationCurve destructionScaleEasing;
 
     [Header("Library")]
     public Mesh boxMesh;

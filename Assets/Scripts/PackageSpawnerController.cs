@@ -8,6 +8,9 @@ public class PackageSpawnerController : MonoBehaviour
 
     public PackageController packagePrefab;
 
+    public delegate void PackageSpawnedDelegate(PackageSpawnerController _spawner, PackageController _package);
+    public event PackageSpawnedDelegate OnPackageSpawned;
+
     // Use this for initialization
     void Start () {
         m_timer = spawnRate;
@@ -42,6 +45,8 @@ public class PackageSpawnerController : MonoBehaviour
         int layoutEnumValue = Random.Range(0, System.Enum.GetNames(typeof(PackageLayout)).Length);
         PackageLayout layout = (PackageLayout)layoutEnumValue;
         package.SetLayout(layout);
+
+        if (OnPackageSpawned != null) OnPackageSpawned(this, package);
 
         return package;
     }
