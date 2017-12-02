@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour {
                     }
                     else
                     {
-                        cakeslice.Outline outline = rb.GetComponent<cakeslice.Outline>();
+                        cakeslice.Outline outline = rb.GetComponentInChildren<cakeslice.Outline>();
                         outline.enabled = true;
                         m_outlinedObjects.Add(outline);
                     }

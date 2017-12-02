@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class PackageSpawnerController : MonoBehaviour
 {
-    public enum PackageShape
-    {
-        Box,
-        /*Cylinder,
-        Flat,
-        Sphere,
-        Pyramid,
-        Rectangle*/
-    }
-
     public float spawnRate = 5.0f;
 
     public PackageController BoxPrefab;
@@ -45,7 +35,7 @@ public class PackageSpawnerController : MonoBehaviour
     public PackageController SpawnRandomPackage()
     {
         PackageController package = null;
-        int shapeEnumValue = Random.Range(0, System.Enum.GetNames(typeof(PackageShape)).Length - 1);
+        int shapeEnumValue = Random.Range(0, System.Enum.GetNames(typeof(PackageShape)).Length);
         PackageShape shape = (PackageShape)shapeEnumValue;
 
         switch(shape)
@@ -59,6 +49,10 @@ public class PackageSpawnerController : MonoBehaviour
             default:
                 break;
         }
+
+        int colorEnumValue = Random.Range(0, System.Enum.GetNames(typeof(PackageColor)).Length);
+        PackageColor color = (PackageColor)colorEnumValue;
+        package.SetColor(color);
 
         return package;
     }
