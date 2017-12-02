@@ -311,11 +311,11 @@ MonoBehaviour:
   sphereMesh: {fileID: 4300006, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}
   rectangleMesh: {fileID: 4300008, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}
   boxTexture: {fileID: 2800000, guid: 592c9af88d4a71542a7c71f8470bb2c6, type: 3}
-  pyramidTexture: {fileID: 2800000, guid: 592c9af88d4a71542a7c71f8470bb2c6, type: 3}
-  cylinderTexture: {fileID: 2800000, guid: 592c9af88d4a71542a7c71f8470bb2c6, type: 3}
-  flatTexture: {fileID: 2800000, guid: 592c9af88d4a71542a7c71f8470bb2c6, type: 3}
+  pyramidTexture: {fileID: 2800000, guid: 96db24330375cb24e8a37b99f1fd1dfe, type: 3}
+  cylinderTexture: {fileID: 2800000, guid: 7ac59e4dbaa67c74e8ad176582acf8c7, type: 3}
+  flatTexture: {fileID: 2800000, guid: 3269f3a85fd0c6e4eb2300259807f9fe, type: 3}
   sphereTexture: {fileID: 2800000, guid: 592c9af88d4a71542a7c71f8470bb2c6, type: 3}
-  rectangleTexture: {fileID: 2800000, guid: 592c9af88d4a71542a7c71f8470bb2c6, type: 3}
+  rectangleTexture: {fileID: 2800000, guid: 15364bf5d50f318468b8434ebfd8fece, type: 3}
   redColor: {r: 1, g: 0, b: 0, a: 1}
   blueColor: {r: 0, g: 0.13103437, b: 1, a: 1}
   greenColor: {r: 0.07844828, g: 0.6691177, b: 0, a: 1}
