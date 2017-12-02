@@ -6,10 +6,10 @@ public enum PackageShape
 {
     Box,
     Pyramid,
-    /*Cylinder,
+    Cylinder,
     Flat,
     Sphere,
-    Rectangle*/
+    Rectangle
 }
 
 public enum PackageColor
@@ -23,6 +23,7 @@ public enum PackageLayout
 {
     Layout1,
     Layout2,
+    Layout3,
 }
 
 public class PackageController : MonoBehaviour {
@@ -38,9 +39,17 @@ public class PackageController : MonoBehaviour {
     [Header("Library")]
     public Mesh boxMesh;
     public Mesh pyramidMesh;
+    public Mesh cylinderMesh;
+    public Mesh flatMesh;
+    public Mesh sphereMesh;
+    public Mesh rectangleMesh;
 
     public Texture2D boxTexture;
     public Texture2D pyramidTexture;
+    public Texture2D cylinderTexture;
+    public Texture2D flatTexture;
+    public Texture2D sphereTexture;
+    public Texture2D rectangleTexture;
 
     public Color redColor;
     public Color blueColor;
@@ -48,6 +57,7 @@ public class PackageController : MonoBehaviour {
 
     public Texture2D layout1Texture;
     public Texture2D layout2Texture;
+    public Texture2D layout3Texture;
 
     [Header("InternalObjects")]
     public cakeslice.Outline outline;
@@ -129,6 +139,34 @@ public class PackageController : MonoBehaviour {
                 }
                 break;
 
+            case PackageShape.Flat:
+                {
+                    m = flatMesh;
+                    t = flatTexture;
+                }
+                break;
+
+            case PackageShape.Cylinder:
+                {
+                    m = cylinderMesh;
+                    t = cylinderTexture;
+                }
+                break;
+
+            case PackageShape.Rectangle:
+                {
+                    m = rectangleMesh;
+                    t = rectangleTexture;
+                }
+                break;
+
+            case PackageShape.Sphere:
+                {
+                    m = sphereMesh;
+                    t = sphereTexture;
+                }
+                break;
+
             default:
                 break;
         }
@@ -192,6 +230,12 @@ public class PackageController : MonoBehaviour {
             case PackageLayout.Layout2:
                 {
                     t = layout2Texture;
+                }
+                break;
+
+            case PackageLayout.Layout3:
+                {
+                    t = layout3Texture;
                 }
                 break;
 

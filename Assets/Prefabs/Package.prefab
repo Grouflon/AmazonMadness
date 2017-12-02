@@ -127,7 +127,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1532428965521484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.9219221, y: 2.28, z: 0.99456376}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4729960102487158}
@@ -302,15 +302,26 @@ MonoBehaviour:
   packageShape: 0
   packageColor: 0
   packageLayout: 1
+  canValidateWinCondition: 1
+  destructionTime: 1
   boxMesh: {fileID: 4300010, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}
   pyramidMesh: {fileID: 4300002, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}
+  cylinderMesh: {fileID: 4300004, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}
+  flatMesh: {fileID: 4300000, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}
+  sphereMesh: {fileID: 4300006, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}
+  rectangleMesh: {fileID: 4300008, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}
   boxTexture: {fileID: 2800000, guid: 592c9af88d4a71542a7c71f8470bb2c6, type: 3}
   pyramidTexture: {fileID: 2800000, guid: 592c9af88d4a71542a7c71f8470bb2c6, type: 3}
+  cylinderTexture: {fileID: 2800000, guid: 592c9af88d4a71542a7c71f8470bb2c6, type: 3}
+  flatTexture: {fileID: 2800000, guid: 592c9af88d4a71542a7c71f8470bb2c6, type: 3}
+  sphereTexture: {fileID: 2800000, guid: 592c9af88d4a71542a7c71f8470bb2c6, type: 3}
+  rectangleTexture: {fileID: 2800000, guid: 592c9af88d4a71542a7c71f8470bb2c6, type: 3}
   redColor: {r: 1, g: 0, b: 0, a: 1}
   blueColor: {r: 0, g: 0.13103437, b: 1, a: 1}
   greenColor: {r: 0.07844828, g: 0.6691177, b: 0, a: 1}
-  layout1Texture: {fileID: 2800000, guid: c0b276667ec4d6d4394afb1ef585b8cf, type: 3}
-  layout2Texture: {fileID: 2800000, guid: e41bc911e6c5c7745952e205c31eb761, type: 3}
+  layout1Texture: {fileID: 2800000, guid: ad5eeece5c8a4e0489393a752d1ffdb9, type: 3}
+  layout2Texture: {fileID: 2800000, guid: c06dddca1d1b78642bf638d349bf87f0, type: 3}
+  layout3Texture: {fileID: 2800000, guid: 7f48ffcd4f0581f4aa05fae1281ad3b6, type: 3}
   outline: {fileID: 114772296675721926}
   cardboardObject: {fileID: 23289180690006798}
   colorObject: {fileID: 23582603664219600}

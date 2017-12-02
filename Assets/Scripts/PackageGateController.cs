@@ -41,6 +41,7 @@ public class PackageGateController : MonoBehaviour
         rb.isKinematic = true;
         m_objective.gameObject.GetComponent<Collider>().enabled = false;
         m_objective.enabled = m_objectiveEnabled;
+        m_objective.transform.localPosition = Vector3.zero;
 
         SetObjective(PackageShape.Box, PackageColor.Red, PackageLayout.Layout2);
         SetObjectiveEnabled(true);
