@@ -18,10 +18,19 @@ public class PlayerController : MonoBehaviour {
     void Start ()
     {
         m_rigidbody = GetComponent<Rigidbody>();
+        m_outlinedObjects = new List<cakeslice.Outline>();
 	}
 	
 	void Update ()
     {
+        // RESET OUTLINES
+        foreach(cakeslice.Outline outlinedObject in m_outlinedObjects)
+        {
+            outlinedObject.enabled = false;
+        }
+        m_outlinedObjects.Clear();
+
+        // RELEASE GRAB
         if (input.IsGrabReleased())
         {
             if (m_grabbedObject != null)
@@ -30,18 +39,26 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if (input.IsGrabPressed())
+        
+        if (m_grabbedObject == null)
         {
-            if (m_grabbedObject == null)
+            List<GameObject> grabbableObjects = new List<GameObject>();
+            grabZone.GetGrabbableObjects(ref grabbableObjects);
+            
+            if (grabbableObjects.Count != 0)
             {
-                List<GameObject> grabbableObjects = new List<GameObject>();
-                grabZone.GetGrabbableObjects(ref grabbableObjects);
-                if (grabbableObjects.Count != 0)
+                Rigidbody rb = grabbableObjects[0].GetComponent<Rigidbody>();
+                if (rb != null)
                 {
-                    Rigidbody rb = grabbableObjects[0].GetComponent<Rigidbody>();
-                    if (rb != null)
+                    if (input.IsGrabPressed())
                     {
                         GrabObject(rb);
+                    }
+                    else
+                    {
+                        cakeslice.Outline outline = rb.GetComponent<cakeslice.Outline>();
+                        outline.enabled = true;
+                        m_outlinedObjects.Add(outline);
                     }
                 }
             }
@@ -130,4 +147,6 @@ public class PlayerController : MonoBehaviour {
     Vector3 m_grabbedObjectPosition;
     Rigidbody m_grabbedObject;
     Rigidbody m_rigidbody;
+
+    List<cakeslice.Outline> m_outlinedObjects;
 }
