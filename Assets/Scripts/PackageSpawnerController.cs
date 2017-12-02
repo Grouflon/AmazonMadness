@@ -54,6 +54,10 @@ public class PackageSpawnerController : MonoBehaviour
         PackageColor color = (PackageColor)colorEnumValue;
         package.SetColor(color);
 
+        int layoutEnumValue = Random.Range(0, System.Enum.GetNames(typeof(PackageLayout)).Length);
+        PackageLayout layout = (PackageLayout)layoutEnumValue;
+        package.SetLayout(layout);
+
         return package;
     }
 
