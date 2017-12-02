@@ -2,6 +2,7 @@ Bin/**
 Library/**
 Temp/**
 obj/**
+UnityPackageManager/**
 
 **.csproj
 **.sln
