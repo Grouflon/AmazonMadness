@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4322066507684478}
   - component: {fileID: 33720570214097522}
   - component: {fileID: 23757983621236450}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cardboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4028022149113124}
   - component: {fileID: 64454980458489918}
   - component: {fileID: 54202990996236862}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Package_Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

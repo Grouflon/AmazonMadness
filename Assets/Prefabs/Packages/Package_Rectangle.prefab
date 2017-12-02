@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4943484038204692}
   - component: {fileID: 33453715399092920}
   - component: {fileID: 23460641824332224}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cardboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4839146220318756}
   - component: {fileID: 65689695199776804}
   - component: {fileID: 54947927169466994}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Package_Rectangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

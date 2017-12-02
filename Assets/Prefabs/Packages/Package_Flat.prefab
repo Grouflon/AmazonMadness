@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4863723021562698}
   - component: {fileID: 65970284466554368}
   - component: {fileID: 54797561170844046}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Package_Flat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4730633651691168}
   - component: {fileID: 33199836410333592}
   - component: {fileID: 23916836741742504}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cardboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
