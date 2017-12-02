@@ -20,7 +20,8 @@ public class PackageCollision : MonoBehaviour
     {
         float _impactForce = gameObject.GetComponent<Rigidbody>().velocity.magnitude;
 
-        Debug.Log(_impactForce);
+        //Debug.Log(_impactForce);
+
         if (_impactForce <= noImpactThreshold)
         {
             // No Impact
@@ -29,19 +30,25 @@ public class PackageCollision : MonoBehaviour
         else if (_impactForce > noImpactThreshold && _impactForce <= lowImpactThreshold)
         {
             // Soft Impact
-            source.PlayOneShot(AudioManager.Instance.packageSoftImpacts, Random.Range(0f, 0.2f));
+            source.PlayOneShot(AudioManager.Instance.packageSoftImpacts, Random.Range(0.01f, 0.05f));
             return;
         }
         else if (_impactForce > lowImpactThreshold && _impactForce < highImpactThreshold)
         {
             // Mid Impact
-            source.PlayOneShot(AudioManager.Instance.packageMidImpacts, Random.Range(0.2f, 0.5f));
+            source.PlayOneShot(AudioManager.Instance.packageMidImpacts, Random.Range(0.05f, 0.1f));
             return;
         }
         else
         {
             // High Impact
-            source.PlayOneShot(AudioManager.Instance.packageHighImpact, Random.Range(0.5f, 1f));
+            if (col.collider.name == "Player")
+            {
+                source.PlayOneShot(AudioManager.Instance.packageMidImpacts, Random.Range(0.05f, 0.1f));
+                return;
+            }
+
+            source.PlayOneShot(AudioManager.Instance.packageHighImpact, Random.Range(0.05f, 0.2f));
 
             return;
         }
