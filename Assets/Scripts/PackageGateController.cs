@@ -21,8 +21,10 @@ public class PackageGateController : MonoBehaviour
     public void SetObjectiveEnabled(bool _enabled)
     {
         m_objectiveEnabled = _enabled;
-
-        m_objective.enabled = m_objectiveEnabled;
+        if (m_objective != null)
+        {
+            m_objective.gameObject.SetActive(m_objectiveEnabled);
+        }
     }
 
     public bool IsObjectiveEnabled()
@@ -46,11 +48,9 @@ public class PackageGateController : MonoBehaviour
         rb.useGravity = false;
         rb.isKinematic = true;
         m_objective.gameObject.GetComponent<Collider>().enabled = false;
-        m_objective.enabled = m_objectiveEnabled;
+        m_objective.gameObject.SetActive(m_objectiveEnabled);
         m_objective.transform.localPosition = Vector3.zero;
-
-        SetObjective(PackageShape.Box, PackageColor.Red, PackageLayout.Layout2);
-        SetObjectiveEnabled(true);
+        m_objective.outline.enabled = false;
 	}
 	
 	// Update is called once per frame

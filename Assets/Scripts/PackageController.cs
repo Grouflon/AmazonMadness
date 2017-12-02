@@ -35,6 +35,7 @@ public class PackageController : MonoBehaviour {
     [Header("Game")]
     public bool canValidateWinCondition = true;
     public float destructionTime = 1.0f;
+    public AnimationCurve destructionScaleEasing;
 
     [Header("Library")]
     public Mesh boxMesh;
@@ -78,9 +79,13 @@ public class PackageController : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update ()
+    {
+		if (m_hasFinishedDestroying)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnDestroy()
     {
@@ -98,17 +103,17 @@ public class PackageController : MonoBehaviour {
 
     IEnumerator PrettyDestroySequence()
     {
-        float destroyTimer = destructionTime;
+        float destroyTimer = 0.0f;
         Vector3 startScale = transform.localScale;
-        while (destroyTimer > 0.0f)
+        while (destroyTimer < destructionTime)
         {
-            destroyTimer -= Time.deltaTime;
+            destroyTimer += Time.deltaTime;
 
-            float easedT = Ease.BackOut(Mathf.Clamp01(destroyTimer / destructionTime));
-            transform.localScale = startScale * Mathf.Pow(easedT, 2);
+            float easedT = destructionScaleEasing.Evaluate(Mathf.Clamp01(destroyTimer / destructionTime));
+            transform.localScale = startScale * easedT;
             yield return new WaitForEndOfFrame();
         }
-        Destroy(gameObject);
+        m_hasFinishedDestroying = true;
     }
 
     public PackageShape GetShape()
@@ -247,4 +252,5 @@ public class PackageController : MonoBehaviour {
     }
 
     bool m_isDestroying = false;
+    bool m_hasFinishedDestroying = false;
 }
