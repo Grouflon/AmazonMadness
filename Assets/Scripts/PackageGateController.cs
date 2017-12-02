@@ -7,6 +7,12 @@ public class PackageGateController : MonoBehaviour
     public Transform objectiveDisplayTransform;
     public PackageController packagePrefab;
 
+    public float spinSpeed = 20.0f;
+    public float viewAngleAmplitude = 20.0f;
+    public float viewAnglePhase = 3.0f;
+    public float wiggleAmplitude = 1.0f;
+    public float wigglePhase = 1.0f;
+
     public delegate void PackageGateDelegate(PackageGateController _gate, PackageController _package);
 
     public event PackageGateDelegate OnValidPackage;
@@ -49,7 +55,19 @@ public class PackageGateController : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (m_objectiveEnabled)
+        {
+            m_timer += Time.deltaTime;
+            m_timer = m_timer % (viewAnglePhase * wigglePhase);
+
+            m_spinAngle += spinSpeed * Time.deltaTime;
+            m_spinAngle = m_spinAngle % 360.0f;
+            float viewAngle = ((Mathf.Sin(Mathf.PI * 2.0f * m_timer / viewAnglePhase) * 2.0f) - 1.0f) * viewAngleAmplitude;
+            m_objective.transform.rotation = Quaternion.AngleAxis(m_spinAngle, Vector3.up) * Quaternion.AngleAxis(viewAngle, Vector3.right);
+
+            float wiggle = 1.0f + ((Mathf.Sin(Mathf.PI * 2.0f * m_timer / wigglePhase) * 2.0f) - 1.0f) * wiggleAmplitude;
+            m_objective.transform.localScale = Vector3.one * wiggle;
+        }
 	}
 
     private void OnTriggerEnter(Collider other)
@@ -76,4 +94,6 @@ public class PackageGateController : MonoBehaviour
 
     PackageController m_objective;
     bool m_objectiveEnabled = false;
+    float m_timer = 0.0f;
+    float m_spinAngle = 0.0f;
 }

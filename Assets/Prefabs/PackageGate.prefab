@@ -509,6 +509,11 @@ MonoBehaviour:
   objectiveDisplayTransform: {fileID: 4003143864886120}
   packagePrefab: {fileID: 114688206956143226, guid: 8b95bfef2a278b047894b37a4b4f2ae6,
     type: 2}
+  spinSpeed: 70
+  viewAngleAmplitude: 9
+  viewAnglePhase: 3
+  wiggleAmplitude: 0.02
+  wigglePhase: 2
 --- !u!136 &136466706173198820
 CapsuleCollider:
   m_ObjectHideFlags: 1
