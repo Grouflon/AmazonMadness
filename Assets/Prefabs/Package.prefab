@@ -303,7 +303,31 @@ MonoBehaviour:
   packageColor: 0
   packageLayout: 1
   canValidateWinCondition: 1
-  destructionTime: 1
+  destructionTime: 0.5
+  destructionScaleEasing:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0.012556375
+      outSlope: -0.0030092166
+      tangentMode: 5
+    - serializedVersion: 2
+      time: 0.34313494
+      value: 1.2480453
+      inSlope: -0.27000904
+      outSlope: -4.7365036
+      tangentMode: 1
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 1
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   boxMesh: {fileID: 4300010, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}
   pyramidMesh: {fileID: 4300002, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}
   cylinderMesh: {fileID: 4300004, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}

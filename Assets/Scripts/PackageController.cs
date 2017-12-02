@@ -103,14 +103,14 @@ public class PackageController : MonoBehaviour {
 
     IEnumerator PrettyDestroySequence()
     {
-        float destroyTimer = destructionTime;
+        float destroyTimer = 0.0f;
         Vector3 startScale = transform.localScale;
-        while (destroyTimer > 0.0f)
+        while (destroyTimer < destructionTime)
         {
-            destroyTimer -= Time.deltaTime;
+            destroyTimer += Time.deltaTime;
 
-            float easedT = Ease.BackOut(Mathf.Clamp01(destroyTimer / destructionTime));
-            transform.localScale = startScale * Mathf.Pow(easedT, 2);
+            float easedT = destructionScaleEasing.Evaluate(Mathf.Clamp01(destroyTimer / destructionTime));
+            transform.localScale = startScale * easedT;
             yield return new WaitForEndOfFrame();
         }
         m_hasFinishedDestroying = true;
