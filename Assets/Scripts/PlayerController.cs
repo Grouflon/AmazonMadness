@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour {
     public float lookUpMin = -90.0f;
     public float lookUpMax = 90.0f;
 
+    public float jumpStrength = 200.0f;
+
     void Start ()
     {
         m_rigidbody = GetComponent<Rigidbody>();
@@ -34,6 +36,12 @@ public class PlayerController : MonoBehaviour {
         }
         m_outlinedObjects.Clear();
 
+        // JUMP
+        if (input.IsJumpPressed())
+        {
+            m_rigidbody.AddForce(Vector3.up * jumpStrength, ForceMode.Impulse);
+        }
+
         // RELEASE GRAB
         if (input.IsGrabReleased())
         {
@@ -42,7 +50,6 @@ public class PlayerController : MonoBehaviour {
                 DropObject();
             }
         }
-
         
         if (m_grabbedObject == null)
         {

@@ -12,4 +12,6 @@ public abstract class InputController : MonoBehaviour {
 
     public abstract bool IsGrabPressed();
     public abstract bool IsGrabReleased();
+
+    public abstract bool IsJumpPressed();
 }

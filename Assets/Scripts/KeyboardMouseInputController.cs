@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -76,5 +77,10 @@ public class KeyboardMouseInputController : InputController
     public override bool IsGrabReleased()
     {
         return Input.GetMouseButtonUp(0);
+    }
+
+    public override bool IsJumpPressed()
+    {
+        return Input.GetKeyDown(KeyCode.Space);
     }
 }

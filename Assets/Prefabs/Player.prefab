@@ -360,6 +360,7 @@ MonoBehaviour:
   lookRightSpeed: 160
   lookUpMin: -80
   lookUpMax: 80
+  jumpStrength: 350
 --- !u!124 &124950166675430952
 Behaviour:
   m_ObjectHideFlags: 1
