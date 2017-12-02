@@ -311,13 +311,13 @@ MonoBehaviour:
       time: 0
       value: 1
       inSlope: 0.012556375
-      outSlope: -0.0030092166
+      outSlope: 1.006507
       tangentMode: 5
     - serializedVersion: 2
-      time: 0.34313494
-      value: 1.2480453
-      inSlope: -0.27000904
-      outSlope: -4.7365036
+      time: 0.68035614
+      value: 1.4124928
+      inSlope: -0.0502551
+      outSlope: -14.429404
       tangentMode: 1
     - serializedVersion: 2
       time: 1

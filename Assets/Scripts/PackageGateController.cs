@@ -23,7 +23,7 @@ public class PackageGateController : MonoBehaviour
         m_objectiveEnabled = _enabled;
         if (m_objective != null)
         {
-            m_objective.enabled = m_objectiveEnabled;
+            m_objective.gameObject.SetActive(m_objectiveEnabled);
         }
     }
 
@@ -48,7 +48,7 @@ public class PackageGateController : MonoBehaviour
         rb.useGravity = false;
         rb.isKinematic = true;
         m_objective.gameObject.GetComponent<Collider>().enabled = false;
-        m_objective.enabled = m_objectiveEnabled;
+        m_objective.gameObject.SetActive(m_objectiveEnabled);
         m_objective.transform.localPosition = Vector3.zero;
         m_objective.outline.enabled = false;
 	}

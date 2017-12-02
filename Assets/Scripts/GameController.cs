@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
         {
             m_gates.Add(gate);
             gate.OnValidPackage += OnValidPackage;
-            gate.OnValidPackage += OnInvalidPackage;
+            gate.OnInvalidPackage += OnInvalidPackage;
             gate.SetObjectiveEnabled(false);
         }
 
