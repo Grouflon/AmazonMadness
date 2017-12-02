@@ -6,12 +6,7 @@ public class PackageSpawnerController : MonoBehaviour
 {
     public float spawnRate = 5.0f;
 
-    public PackageController BoxPrefab;
-    /*public GameObject CylinderPrefab;
-    public GameObject FlatPrefab;
-    public GameObject SpherePrefab;
-    public GameObject PyramidPrefab;
-    public GameObject RectanglePrefab;*/
+    public PackageController packagePrefab;
 
     // Use this for initialization
     void Start () {
@@ -34,21 +29,11 @@ public class PackageSpawnerController : MonoBehaviour
 
     public PackageController SpawnRandomPackage()
     {
-        PackageController package = null;
+        PackageController package = Instantiate(packagePrefab, transform.position, transform.rotation);
+
         int shapeEnumValue = Random.Range(0, System.Enum.GetNames(typeof(PackageShape)).Length);
         PackageShape shape = (PackageShape)shapeEnumValue;
-
-        switch(shape)
-        {
-            case PackageShape.Box:
-                {
-                    package = Instantiate(BoxPrefab, transform.position, transform.rotation);
-                }
-                break;
-
-            default:
-                break;
-        }
+        package.SetShape(shape);
 
         int colorEnumValue = Random.Range(0, System.Enum.GetNames(typeof(PackageColor)).Length);
         PackageColor color = (PackageColor)colorEnumValue;

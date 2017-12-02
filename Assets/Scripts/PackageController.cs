@@ -5,10 +5,10 @@ using UnityEngine;
 public enum PackageShape
 {
     Box,
+    Pyramid,
     /*Cylinder,
     Flat,
     Sphere,
-    Pyramid,
     Rectangle*/
 }
 
@@ -27,9 +27,20 @@ public enum PackageLayout
 
 public class PackageController : MonoBehaviour {
 
-    public cakeslice.Outline outline;
+    [SerializeField] PackageShape packageShape;
+    [SerializeField] PackageColor packageColor;
+    [SerializeField] PackageLayout packageLayout;
 
-    public PackageShape shape;
+    [Header("Game")]
+    public bool canValidateWinCondition = true;
+    public float destructionTime = 1.0f;
+
+    [Header("Library")]
+    public Mesh boxMesh;
+    public Mesh pyramidMesh;
+
+    public Texture2D boxTexture;
+    public Texture2D pyramidTexture;
 
     public Color redColor;
     public Color blueColor;
@@ -38,13 +49,22 @@ public class PackageController : MonoBehaviour {
     public Texture2D layout1Texture;
     public Texture2D layout2Texture;
 
+    [Header("InternalObjects")]
+    public cakeslice.Outline outline;
+    public MeshRenderer cardboardObject;
     public MeshRenderer colorObject;
     public MeshRenderer layoutObject;
+
+    public delegate void PackageAction(PackageController _package);
+    public event PackageAction Destroyed;
 
     // Use this for initialization
     void Start ()
     {
         outline.enabled = false;
+        SetShape(packageShape);
+        SetColor(packageColor);
+        SetLayout(packageLayout);
     }
 
     // Update is called once per frame
@@ -52,11 +72,84 @@ public class PackageController : MonoBehaviour {
 		
 	}
 
+    private void OnDestroy()
+    {
+        if (Destroyed != null) Destroyed(this);
+    }
+
+    public void PrettyDestroy()
+    {
+        if (m_isDestroying)
+            return;
+
+        m_isDestroying = true;
+        StartCoroutine(PrettyDestroySequence());
+    }
+
+    IEnumerator PrettyDestroySequence()
+    {
+        float destroyTimer = destructionTime;
+        Vector3 startScale = transform.localScale;
+        while (destroyTimer > 0.0f)
+        {
+            destroyTimer -= Time.deltaTime;
+
+            float easedT = Ease.BackOut(Mathf.Clamp01(destroyTimer / destructionTime));
+            transform.localScale = startScale * Mathf.Pow(easedT, 2);
+            yield return new WaitForEndOfFrame();
+        }
+        Destroy(gameObject);
+    }
+
+    public PackageShape GetShape()
+    {
+        return packageShape;
+    }
+
+    public void SetShape(PackageShape _shape)
+    {
+        packageShape = _shape;
+
+        Mesh m = null;
+        Texture2D t = null;
+
+        switch (packageShape)
+        {
+            case PackageShape.Box:
+                {
+                    m = boxMesh;
+                    t = boxTexture;
+                }
+                break;
+
+            case PackageShape.Pyramid:
+                {
+                    m = pyramidMesh;
+                    t = pyramidTexture;
+                }
+                break;
+
+            default:
+                break;
+        }
+
+        GetComponent<MeshCollider>().sharedMesh = m;
+        cardboardObject.GetComponent<MeshFilter>().sharedMesh = m;
+        cardboardObject.GetComponent<MeshRenderer>().material.mainTexture = t;
+        colorObject.GetComponent<MeshFilter>().sharedMesh = m;
+        layoutObject.GetComponent<MeshFilter>().sharedMesh = m;
+    }
+
+    public PackageColor GetColor()
+    {
+        return packageColor;
+    }
+
     public void SetColor(PackageColor _color)
     {
-        m_color = _color;
+        packageColor = _color;
         Color c = new Color();
-        switch(m_color)
+        switch(packageColor)
         {
             case PackageColor.Red:
                 {
@@ -78,12 +171,17 @@ public class PackageController : MonoBehaviour {
         }
         colorObject.material.color = c;
     }
+
+    public PackageLayout GetLayout()
+    {
+        return packageLayout;
+    }
    
     public void SetLayout(PackageLayout _layout)
     {
-        m_layout = _layout;
+        packageLayout = _layout;
         Texture2D t = null;
-        switch(m_layout)
+        switch(packageLayout)
         {
             case PackageLayout.Layout1:
                 {
@@ -104,6 +202,5 @@ public class PackageController : MonoBehaviour {
         layoutObject.material.mainTexture = t;
     }
 
-    PackageColor m_color;
-    PackageLayout m_layout;
+    bool m_isDestroying = false;
 }
