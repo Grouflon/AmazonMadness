@@ -9,19 +9,24 @@ ModelImporter:
     100002: Conveyor
     100004: Side_L
     100006: Side_R
+    100008: Sides
     400000: //RootNode
     400002: Conveyor
     400004: Side_L
     400006: Side_R
+    400008: Sides
     2300000: Conveyor
     2300002: Side_L
     2300004: Side_R
+    2300006: Sides
     3300000: Conveyor
     3300002: Side_L
     3300004: Side_R
+    3300006: Sides
     4300000: Conveyor
     4300002: Side_R
     4300004: Side_L
+    4300006: Sides
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
