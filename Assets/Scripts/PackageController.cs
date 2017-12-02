@@ -78,9 +78,13 @@ public class PackageController : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update ()
+    {
+		if (m_hasFinishedDestroying)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnDestroy()
     {
@@ -108,7 +112,7 @@ public class PackageController : MonoBehaviour {
             transform.localScale = startScale * Mathf.Pow(easedT, 2);
             yield return new WaitForEndOfFrame();
         }
-        Destroy(gameObject);
+        m_hasFinishedDestroying = true;
     }
 
     public PackageShape GetShape()
@@ -247,4 +251,5 @@ public class PackageController : MonoBehaviour {
     }
 
     bool m_isDestroying = false;
+    bool m_hasFinishedDestroying = false;
 }
