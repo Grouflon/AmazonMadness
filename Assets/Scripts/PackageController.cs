@@ -23,7 +23,6 @@ public enum PackageLayout
 {
     Layout1,
     Layout2,
-    Layout3,
 }
 
 public class PackageController : MonoBehaviour {
@@ -36,10 +35,14 @@ public class PackageController : MonoBehaviour {
     public Color blueColor;
     public Color greenColor;
 
-    public MeshRenderer colorObject;
+    public Texture2D layout1Texture;
+    public Texture2D layout2Texture;
 
-	// Use this for initialization
-	void Start ()
+    public MeshRenderer colorObject;
+    public MeshRenderer layoutObject;
+
+    // Use this for initialization
+    void Start ()
     {
         outline.enabled = false;
     }
@@ -75,6 +78,32 @@ public class PackageController : MonoBehaviour {
         }
         colorObject.material.color = c;
     }
+   
+    public void SetLayout(PackageLayout _layout)
+    {
+        m_layout = _layout;
+        Texture2D t = null;
+        switch(m_layout)
+        {
+            case PackageLayout.Layout1:
+                {
+                    t = layout1Texture;
+                }
+                break;
+
+            case PackageLayout.Layout2:
+                {
+                    t = layout2Texture;
+                }
+                break;
+
+            default:
+                break;
+        }
+
+        layoutObject.material.mainTexture = t;
+    }
 
     PackageColor m_color;
+    PackageLayout m_layout;
 }
