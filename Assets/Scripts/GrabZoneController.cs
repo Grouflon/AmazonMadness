@@ -14,6 +14,11 @@ public class GrabZoneController : MonoBehaviour
         if (!m_grabbableObjects.ContainsKey(other.gameObject))
         {
             m_grabbableObjects.Add(other.gameObject, 0);
+            PackageController package = other.GetComponent<PackageController>();
+            if (package != null)
+            {
+                package.Destroyed += OnPackageDestroyed;
+            }
         }
         ++m_grabbableObjects[other.gameObject];
     }
@@ -24,6 +29,11 @@ public class GrabZoneController : MonoBehaviour
         if (m_grabbableObjects[other.gameObject] == 0)
         {
             m_grabbableObjects.Remove(other.gameObject);
+            PackageController package = other.GetComponent<PackageController>();
+            if (package != null)
+            {
+                package.Destroyed -= OnPackageDestroyed;
+            }
         }
     }
 
@@ -33,6 +43,12 @@ public class GrabZoneController : MonoBehaviour
         {
             _list.Add(pair.Key);
         }
+    }
+
+    void OnPackageDestroyed(PackageController _package)
+    {
+        m_grabbableObjects.Remove(_package.gameObject);
+        _package.Destroyed -= OnPackageDestroyed;
     }
 
     Dictionary<GameObject, int> m_grabbableObjects;

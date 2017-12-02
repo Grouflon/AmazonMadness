@@ -36,11 +36,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4936734416686568}
-  - component: {fileID: 65500222432937152}
   - component: {fileID: 54488869313366022}
   - component: {fileID: 114688206956143226}
+  - component: {fileID: 64513596461470918}
   m_Layer: 9
-  m_Name: Package_Box
+  m_Name: Package
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,8 +274,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65500222432937152
-BoxCollider:
+--- !u!64 &64513596461470918
+MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -284,8 +284,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300010, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}
 --- !u!114 &114688206956143226
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -297,13 +299,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8357c0b84fb14a04a8cb6c0f97376f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outline: {fileID: 114772296675721926}
-  shape: 0
+  packageShape: 0
+  packageColor: 0
+  packageLayout: 1
+  canValidateWinCondition: 1
+  destructionTime: 1
+  boxMesh: {fileID: 4300010, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}
+  pyramidMesh: {fileID: 4300002, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}
+  cylinderMesh: {fileID: 4300004, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}
+  flatMesh: {fileID: 4300000, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}
+  sphereMesh: {fileID: 4300006, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}
+  rectangleMesh: {fileID: 4300008, guid: 8904df93ee63a2042b7b882f5e33895b, type: 3}
+  boxTexture: {fileID: 2800000, guid: 592c9af88d4a71542a7c71f8470bb2c6, type: 3}
+  pyramidTexture: {fileID: 2800000, guid: 96db24330375cb24e8a37b99f1fd1dfe, type: 3}
+  cylinderTexture: {fileID: 2800000, guid: 7ac59e4dbaa67c74e8ad176582acf8c7, type: 3}
+  flatTexture: {fileID: 2800000, guid: 3269f3a85fd0c6e4eb2300259807f9fe, type: 3}
+  sphereTexture: {fileID: 2800000, guid: 8012466f8e5eb564daf126e9a5c49de7, type: 3}
+  rectangleTexture: {fileID: 2800000, guid: 15364bf5d50f318468b8434ebfd8fece, type: 3}
   redColor: {r: 1, g: 0, b: 0, a: 1}
   blueColor: {r: 0, g: 0.13103437, b: 1, a: 1}
   greenColor: {r: 0.07844828, g: 0.6691177, b: 0, a: 1}
-  layout1Texture: {fileID: 2800000, guid: c0b276667ec4d6d4394afb1ef585b8cf, type: 3}
-  layout2Texture: {fileID: 2800000, guid: e41bc911e6c5c7745952e205c31eb761, type: 3}
+  layout1Texture: {fileID: 2800000, guid: ad5eeece5c8a4e0489393a752d1ffdb9, type: 3}
+  layout2Texture: {fileID: 2800000, guid: c06dddca1d1b78642bf638d349bf87f0, type: 3}
+  layout3Texture: {fileID: 2800000, guid: 7f48ffcd4f0581f4aa05fae1281ad3b6, type: 3}
+  outline: {fileID: 114772296675721926}
+  cardboardObject: {fileID: 23289180690006798}
   colorObject: {fileID: 23582603664219600}
   layoutObject: {fileID: 23787585222818872}
 --- !u!114 &114772296675721926

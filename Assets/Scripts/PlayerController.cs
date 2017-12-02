@@ -18,15 +18,19 @@ public class PlayerController : MonoBehaviour {
     void Start ()
     {
         m_rigidbody = GetComponent<Rigidbody>();
-        m_outlinedObjects = new List<cakeslice.Outline>();
+        m_outlinedObjects = new List<PackageController>();
 	}
 	
 	void Update ()
     {
         // RESET OUTLINES
-        foreach(cakeslice.Outline outlinedObject in m_outlinedObjects)
+        foreach(PackageController package in m_outlinedObjects)
         {
-            outlinedObject.enabled = false;
+            package.outline.enabled = false;
+            if (package != m_grabbedObject)
+            {
+                package.Destroyed -= OnPackageDestroyed;
+            }
         }
         m_outlinedObjects.Clear();
 
@@ -47,18 +51,18 @@ public class PlayerController : MonoBehaviour {
             
             if (grabbableObjects.Count != 0)
             {
-                Rigidbody rb = grabbableObjects[0].GetComponent<Rigidbody>();
-                if (rb != null)
+                PackageController package = grabbableObjects[0].GetComponent<PackageController>();
+                if (package != null)
                 {
+                    package.Destroyed += OnPackageDestroyed;
                     if (input.IsGrabPressed())
                     {
-                        GrabObject(rb);
+                        GrabObject(package);
                     }
                     else
                     {
-                        cakeslice.Outline outline = rb.GetComponentInChildren<cakeslice.Outline>();
-                        outline.enabled = true;
-                        m_outlinedObjects.Add(outline);
+                        package.outline.enabled = true;
+                        m_outlinedObjects.Add(package);
                     }
                 }
             }
@@ -111,14 +115,14 @@ public class PlayerController : MonoBehaviour {
         {
             Vector3 newPosition = grabZone.transform.TransformPoint(m_grabbedObjectPosition);
             //m_grabbedObject.MovePosition(newPosition);
-            m_grabbedObject.velocity = (newPosition - m_grabbedObject.transform.position) / Time.fixedDeltaTime;
+            m_grabbedObjectRigidbody.velocity = m_rigidbody.velocity + (newPosition - m_grabbedObject.transform.position) / Time.fixedDeltaTime;
 
             Quaternion newRotation = Quaternion.LookRotation(grabZone.transform.TransformDirection(m_grabbedObjectForward), grabZone.transform.TransformDirection(m_grabbedObjectUp));
-            m_grabbedObject.MoveRotation(newRotation);
+            m_grabbedObjectRigidbody.MoveRotation(newRotation);
         }
     }
 
-    void GrabObject(Rigidbody _object)
+    void GrabObject(PackageController _object)
     {
         if (m_grabbedObject != null)
         {
@@ -127,8 +131,9 @@ public class PlayerController : MonoBehaviour {
         }
 
         m_grabbedObject = _object;
+        m_grabbedObjectRigidbody = m_grabbedObject.GetComponent<Rigidbody>();
 
-        m_grabbedObject.useGravity = false;
+        m_grabbedObjectRigidbody.useGravity = false;
 
         m_grabbedObjectUp = grabZone.transform.InverseTransformDirection(m_grabbedObject.transform.up);
         m_grabbedObjectForward = grabZone.transform.InverseTransformDirection(m_grabbedObject.transform.forward);
@@ -137,16 +142,38 @@ public class PlayerController : MonoBehaviour {
 
     void DropObject()
     {
-        m_grabbedObject.useGravity = true;
+        m_grabbedObjectRigidbody.useGravity = true;
+        if (!m_outlinedObjects.Exists(pkg => pkg == m_grabbedObject))
+        {
+            m_grabbedObject.Destroyed -= OnPackageDestroyed;
+        }
 
         m_grabbedObject = null;
+        m_grabbedObjectRigidbody = null;
+    }
+
+    void OnPackageDestroyed(PackageController _package)
+    {
+        if (_package == m_grabbedObject)
+        {
+            m_grabbedObject = null;
+            m_grabbedObjectRigidbody = null;
+        }
+
+        if (m_outlinedObjects.Exists(pkg => pkg == _package))
+        {
+            m_outlinedObjects.Remove(_package);
+        }
+
+        _package.Destroyed -= OnPackageDestroyed;
     }
 
     Vector3 m_grabbedObjectUp;
     Vector3 m_grabbedObjectForward;
     Vector3 m_grabbedObjectPosition;
-    Rigidbody m_grabbedObject;
+    PackageController m_grabbedObject;
+    Rigidbody m_grabbedObjectRigidbody;
     Rigidbody m_rigidbody;
 
-    List<cakeslice.Outline> m_outlinedObjects;
+    List<PackageController> m_outlinedObjects;
 }
