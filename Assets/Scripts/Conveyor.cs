@@ -5,7 +5,7 @@ using UnityEngine;
 public class Conveyor : MonoBehaviour
 {
     public float speed = 1f;
-    public float speedToForce = 1f;
+    private float speedToForce = 5f;
 
     public MeshRenderer conveyorRenderer;
     private Material conveyorMaterial
