@@ -152,6 +152,9 @@ public class PackageGateController : MonoBehaviour
             }
         }
 
+        if (packages.Count == 0)
+            return null;
+
         return packages[Random.Range(0, packages.Count)];
     }
 
