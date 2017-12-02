@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     public InputController input;
     public Transform head;
+    public GrabZoneController grabZone;
 
     public float forwardSpeed = 10.0f;
     public float lateralSpeed = 10.0f;
@@ -21,13 +22,41 @@ public class PlayerController : MonoBehaviour {
 	
 	void Update ()
     {
+        if (input.IsGrabReleased())
+        {
+            if (m_grabbedObject != null)
+            {
+                DropObject();
+            }
+        }
+
+        if (input.IsGrabPressed())
+        {
+            if (m_grabbedObject == null)
+            {
+                List<GameObject> grabbableObjects = new List<GameObject>();
+                grabZone.GetGrabbableObjects(ref grabbableObjects);
+                if (grabbableObjects.Count != 0)
+                {
+                    Rigidbody rb = grabbableObjects[0].GetComponent<Rigidbody>();
+                    if (rb != null)
+                    {
+                        GrabObject(rb);
+                    }
+                }
+            }
+        }
+	}
+
+    private void FixedUpdate()
+    {
         if (input.IsLookEnabled())
         {
             // LOOKUP
             {
                 Vector3 headEuler = head.localEulerAngles;
                 float lookUp = input.GetLookUpAxis();
-                headEuler.x += lookUp * lookUpSpeed * Time.deltaTime;
+                headEuler.x += lookUp * lookUpSpeed * Time.fixedDeltaTime;
                 float positiveMin = (360.0f + lookUpMin);
                 float halfForbiddenVAlue = lookUpMax + (positiveMin - lookUpMax) * 0.5f;
 
@@ -49,7 +78,7 @@ public class PlayerController : MonoBehaviour {
             // TURN
             {
                 Vector3 euler = transform.eulerAngles;
-                euler.y += input.GetLookRightAxis() * lookRightSpeed * Time.deltaTime;
+                euler.y += input.GetLookRightAxis() * lookRightSpeed * Time.fixedDeltaTime;
                 transform.eulerAngles = euler;
             }
         }
@@ -60,7 +89,45 @@ public class PlayerController : MonoBehaviour {
         velocity.y = m_rigidbody.velocity.y;
 
         m_rigidbody.velocity = velocity;
-	}
 
+        if (m_grabbedObject != null)
+        {
+            Vector3 newPosition = grabZone.transform.TransformPoint(m_grabbedObjectPosition);
+            //m_grabbedObject.MovePosition(newPosition);
+            m_grabbedObject.velocity = (newPosition - m_grabbedObject.transform.position) / Time.fixedDeltaTime;
+
+            Quaternion newRotation = Quaternion.LookRotation(grabZone.transform.TransformDirection(m_grabbedObjectForward), grabZone.transform.TransformDirection(m_grabbedObjectUp));
+            m_grabbedObject.MoveRotation(newRotation);
+        }
+    }
+
+    void GrabObject(Rigidbody _object)
+    {
+        if (m_grabbedObject != null)
+        {
+            Debug.LogError("Object already grabbed.");
+            return;
+        }
+
+        m_grabbedObject = _object;
+
+        m_grabbedObject.useGravity = false;
+
+        m_grabbedObjectUp = grabZone.transform.InverseTransformDirection(m_grabbedObject.transform.up);
+        m_grabbedObjectForward = grabZone.transform.InverseTransformDirection(m_grabbedObject.transform.forward);
+        m_grabbedObjectPosition = grabZone.transform.InverseTransformPoint(m_grabbedObject.transform.position);
+    }
+
+    void DropObject()
+    {
+        m_grabbedObject.useGravity = true;
+
+        m_grabbedObject = null;
+    }
+
+    Vector3 m_grabbedObjectUp;
+    Vector3 m_grabbedObjectForward;
+    Vector3 m_grabbedObjectPosition;
+    Rigidbody m_grabbedObject;
     Rigidbody m_rigidbody;
 }
