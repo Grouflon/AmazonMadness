@@ -385,7 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noImpactThreshold: 0.5
   lowImpactThreshold: 4
-  highImpactThreshold: 15
+  highImpactThreshold: 12
 --- !u!114 &114688206956143226
 MonoBehaviour:
   m_ObjectHideFlags: 1
