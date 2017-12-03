@@ -47,9 +47,12 @@ public class WarpZone : MonoBehaviour {
         if (!m_isWarpEnabled || m_hasWarped)
             return;
 
-        m_hasWarped = true;
-
-        StartCoroutine(LeaveLevelSequence());
+        PlayerController player = other.GetComponent<PlayerController>();
+        if (player != null)
+        {
+            m_hasWarped = true;
+            StartCoroutine(LeaveLevelSequence());
+        }
     }
 
     IEnumerator LeaveLevelSequence()

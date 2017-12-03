@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class TractorBeam : MonoBehaviour
 {
+    public float playerStrength = 100.0f;
     public float strength = 100.0f;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -20,7 +21,7 @@ public class TractorBeam : MonoBehaviour
         PlayerController player = other.GetComponent<PlayerController>();
         if (player != null)
         {
-            player.AddForce(transform.up * strength);
+            player.AddForce(transform.up * playerStrength);
             return;
         }
 
