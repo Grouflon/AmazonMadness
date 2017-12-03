@@ -32,7 +32,7 @@ public class PackageGateAudio : MonoBehaviour {
 
     void Update()
     {
-        if (packageGateController.GetObjectiveRemainingTime() < 5f)
+        if (packageGateController.GetObjective() != null && packageGateController.GetObjectiveRemainingTime() < 5f)
         {
             alarm.On();
         }
