@@ -28,6 +28,8 @@ public class EmployeePerformancePannelController : MonoBehaviour
             Vector3 negativeScale = negativeBarContainer.transform.localScale;
             negativeScale.x = loseRatio;
             negativeBarContainer.transform.localScale = negativeScale;
+
+            negativeBarContainer.gameObject.SetActive(Mathf.Abs(loseRatio) > Mathf.Epsilon);
         }
 
         {
@@ -35,6 +37,8 @@ public class EmployeePerformancePannelController : MonoBehaviour
             Vector3 posititveScale = positiveBarContainer.transform.localScale;
             posititveScale.x = winRatio;
             positiveBarContainer.transform.localScale = posititveScale;
+
+            positiveBarContainer.gameObject.SetActive(Mathf.Abs(winRatio) > Mathf.Epsilon);
         }
 
         if (score <= m_game.loseScoreLimit)
