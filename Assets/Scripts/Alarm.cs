@@ -21,14 +21,18 @@ public class Alarm : MonoBehaviour {
 
 	public void On ()
     {
+        if (!isOn)
+            source.Play();
+
         isOn = true;
-        source.Play();
+        
 	}
 
     public void Off()
     {
+        if (isOn)
+            source.Stop();
         isOn = false;
-        source.Stop();
     }
 
     void Update()
