@@ -160,7 +160,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1380277934943562}
   m_LocalRotation: {x: -0.005261126, y: 0.7070873, z: 0.0052611358, w: 0.7070872}
-  m_LocalPosition: {x: -1.3, y: 0.24000001, z: -4.328}
+  m_LocalPosition: {x: -7.29, y: 0.3, z: -4.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4492075940954198}
@@ -319,7 +319,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 30
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
