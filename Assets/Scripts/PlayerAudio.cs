@@ -20,7 +20,6 @@ public class PlayerAudio : MonoBehaviour
     {
         if (player.isWalking && !walkTrigger)
         {
-            Debug.Log(walkTrigger);
             InvokeRepeating("PlayerWalkFootsteps", 0f, walkFootstepsRate);
             walkTrigger = true;
             
