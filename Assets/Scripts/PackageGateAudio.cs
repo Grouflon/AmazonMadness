@@ -6,6 +6,8 @@ public class PackageGateAudio : MonoBehaviour {
 
     public PackageGateController packageGateController;
 
+    public Alarm alarm;
+
 	void Start ()
     {
         packageGateController.OnValidPackage += GoodPackageSfx;
@@ -26,6 +28,18 @@ public class PackageGateAudio : MonoBehaviour {
     private void ObjectiveExpiredSfx(PackageGateController _gate, PackageController _package)
     {
         AudioManager.Instance.Play("Gate_WrongPackage", transform.position);
+    }
+
+    void Update()
+    {
+        if (packageGateController.GetObjectiveRemainingTime() < 5f)
+        {
+            alarm.On();
+        }
+        else
+        {
+            alarm.Off();
+        }
     }
 
 }
