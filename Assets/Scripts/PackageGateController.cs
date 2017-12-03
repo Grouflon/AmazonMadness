@@ -11,6 +11,7 @@ public class PackageGateController : MonoBehaviour
     [Header("Gameplay")]
     public float objectiveExpirationTime = 20.0f;
     public float activationTime = 0.0f;
+    public bool autoGetObjective = true;
 
     [Header("Objective Display")]
     public float spinSpeed = 20.0f;
@@ -76,7 +77,7 @@ public class PackageGateController : MonoBehaviour
 	void Update ()
     {
         m_lifeTimer += Time.deltaTime;
-        if (GetObjective() == null && m_lifeTimer > activationTime)
+        if (autoGetObjective && GetObjective() == null && m_lifeTimer > activationTime)
         {
             PackageController randomPackage = FindValidObjective();
             SetObjective(randomPackage);
@@ -136,7 +137,7 @@ public class PackageGateController : MonoBehaviour
         }
     }
 
-    PackageController FindValidObjective()
+    public PackageController FindValidObjective()
     {
         List<PackageController> packages = new List<PackageController>();
         m_game.GetPackages(ref packages);
@@ -158,6 +159,11 @@ public class PackageGateController : MonoBehaviour
         return packages[Random.Range(0, packages.Count)];
     }
 
+    public float GetObjectiveRemainingTime()
+    {
+        return m_objectiveExpirationTimer;
+    }
+
     float m_lifeTimer = 0.0f;
     float m_objectiveExpirationTimer = 0.0f;
 
@@ -166,5 +172,4 @@ public class PackageGateController : MonoBehaviour
     PackageController m_objective;
     float m_objectiveProxyAnimationTimer = 0.0f;
     float m_spinAngle = 0.0f;
-    bool m_isGrounded = false;
 }
