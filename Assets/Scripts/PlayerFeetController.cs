@@ -33,5 +33,4 @@ public class PlayerFeetController : MonoBehaviour
     }
 
     Dictionary<GameObject, int> m_touchedObjects;
-    bool m_isTouching = false;
 }

@@ -11,7 +11,12 @@ public class GameController : MonoBehaviour
     public int oneStarScore = 10;
     public int twoStarScore = 20;
     public int threeStarScore = 30;
-    public float levelDuration = 30;
+    public float levelDuration = 30.0f;
+
+    public int GetScore()
+    {
+        return m_score;
+    }
 
     // Use this for initialization
     void Start()
