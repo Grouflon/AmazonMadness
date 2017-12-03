@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public int twoStarScore = 20;
     public int threeStarScore = 30;
     public float levelDuration = 30.0f;
+    public float levelWarmUpDuration = 5.0f;
 
     public int GetScore()
     {
@@ -21,6 +22,11 @@ public class GameController : MonoBehaviour
     public float GetRemainingTime()
     {
         return m_isGameOver ? 0.0f : Mathf.Max(0.0f, levelDuration - m_timer);
+    }
+
+    public bool IsGameStarted()
+    {
+        return m_isGameStarted;
     }
 
     // Use this for initialization
@@ -56,6 +62,15 @@ public class GameController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
+        if (!m_isGameStarted)
+        {
+            if (Time.time < levelWarmUpDuration)
+            {
+                return;
+            }
+            m_isGameStarted = true;
+        }
+
         if (m_isGameOver)
             return;
 
@@ -140,6 +155,7 @@ public class GameController : MonoBehaviour
     }
 
     int m_score = 0;
+    bool m_isGameStarted = false;
     bool m_isGameOver;
     float m_timer = 0.0f;
 
