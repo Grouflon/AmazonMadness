@@ -78,6 +78,13 @@ namespace AudioToolkit
         {
             source.volume = 0f;
 
+            if (parentSound.FadeInTime == 0f)
+            {
+                fadeFactor = 1f;
+                source.volume = refVolume * fadeFactor;
+                yield return null;
+            }
+
             while (fadeFactor < 1f)
             {
                 fadeFactor += Time.deltaTime * (1 / parentSound.FadeInTime);
@@ -87,7 +94,6 @@ namespace AudioToolkit
                     fadeFactor = 1f;
                 yield return null;
             }
-            StopCoroutine(FadeInCoroutine);
         }
 
         IEnumerator FadeOut()
