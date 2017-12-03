@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 54984744534080932}
   - component: {fileID: 114948067077928348}
   - component: {fileID: 114364185374045646}
+  - component: {fileID: 114641730991022886}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -60,7 +61,6 @@ GameObject:
   - component: {fileID: 124950166675430952}
   - component: {fileID: 81728956213420000}
   - component: {fileID: 114389142031357764}
-  - component: {fileID: 114541259830086524}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -179,15 +179,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1266280211681622}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.70710677}
-  m_LocalPosition: {x: -1.17, y: -8.0039995e-17, z: 3.6}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.31499863, y: 1.898, z: 2.2532158}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4265807213561230}
   - {fileID: 4338587583207916}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4587524983072714
 Transform:
   m_ObjectHideFlags: 1
@@ -400,18 +400,18 @@ MonoBehaviour:
   outlineShaderMaterial: {fileID: 0}
   renderTexture: {fileID: 0}
   extraRenderTexture: {fileID: 0}
---- !u!114 &114541259830086524
+--- !u!114 &114641730991022886
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1443219765363270}
+  m_GameObject: {fileID: 1266280211681622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3213b4cdda102c149aeb8f60fa24a1d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 1d434d80c855ff64b8da401afe087e9e, type: 2}
+  walkFootstepsRate: 0.4
 --- !u!114 &114948067077928348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -430,7 +430,7 @@ MonoBehaviour:
   lookUpMin: -80
   lookUpMax: 80
   jumpStrength: 350
-  input: {fileID: 114364185374045646}
+  input: {fileID: 0}
   head: {fileID: 4265807213561230}
   grabZone: {fileID: 114215369799114630}
   feet: {fileID: 114989257641449374}

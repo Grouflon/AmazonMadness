@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
     public float jumpStrength = 200.0f;
 
+    public bool isWalking { get; private set; }
+
     [Header("Internal Objects")]
     public InputController input;
     public Transform head;
@@ -99,7 +101,17 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-	}
+
+        // IS WALKING TEST
+        if (feet.IsTouching() && !m_jumpGate && (Mathf.Abs(m_rigidbody.velocity.x) > 0.1f || Mathf.Abs(m_rigidbody.velocity.z) > 0.1f))
+        {
+            isWalking = true;
+        }
+        else
+        {
+            isWalking = false;
+        }
+    }
 
     private void FixedUpdate()
     {
