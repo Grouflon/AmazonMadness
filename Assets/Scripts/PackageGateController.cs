@@ -153,7 +153,7 @@ public class PackageGateController : MonoBehaviour
         }
 
         if (packages.Count == 0)
-            return null;
+            return null; 
 
         return packages[Random.Range(0, packages.Count)];
     }
@@ -166,4 +166,5 @@ public class PackageGateController : MonoBehaviour
     PackageController m_objective;
     float m_objectiveProxyAnimationTimer = 0.0f;
     float m_spinAngle = 0.0f;
+    bool m_isGrounded = false;
 }

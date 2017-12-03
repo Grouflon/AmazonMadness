@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
-
-    public InputController input;
-    public Transform head;
-    public GrabZoneController grabZone;
-
+public class PlayerController : MonoBehaviour
+{
+    [Header("Movement")]
     public float forwardSpeed = 10.0f;
     public float lateralSpeed = 10.0f;
     public float lookUpSpeed = 50.0f;
@@ -16,6 +13,12 @@ public class PlayerController : MonoBehaviour {
     public float lookUpMax = 90.0f;
 
     public float jumpStrength = 200.0f;
+
+    [Header("Internal Objects")]
+    public InputController input;
+    public Transform head;
+    public GrabZoneController grabZone;
+    public PlayerFeetController feet;
 
     void Start ()
     {
@@ -37,9 +40,15 @@ public class PlayerController : MonoBehaviour {
         m_outlinedObjects.Clear();
 
         // JUMP
-        if (input.IsJumpPressed())
+        if (input.IsJumpPressed() && feet.IsTouching() && !m_jumpGate)
         {
             m_rigidbody.AddForce(Vector3.up * jumpStrength, ForceMode.Impulse);
+            m_jumpGate = true;
+        }
+
+        if (m_rigidbody.velocity.y < 0.0f)
+        {
+            m_jumpGate = false;
         }
 
         // RELEASE GRAB
@@ -197,6 +206,8 @@ public class PlayerController : MonoBehaviour {
     PackageController m_grabbedObject;
     Rigidbody m_grabbedObjectRigidbody;
     Rigidbody m_rigidbody;
+
+    bool m_jumpGate = false;
 
     List<PackageController> m_outlinedObjects;
 }
