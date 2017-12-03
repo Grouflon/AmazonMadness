@@ -26,8 +26,8 @@ public enum PackageLayout
     Layout3,
 }
 
-public class PackageController : MonoBehaviour {
-
+public class PackageController : MonoBehaviour
+{
     [SerializeField] PackageShape packageShape;
     [SerializeField] PackageColor packageColor;
     [SerializeField] PackageLayout packageLayout;
@@ -52,13 +52,35 @@ public class PackageController : MonoBehaviour {
     public Texture2D sphereTexture;
     public Texture2D rectangleTexture;
 
+    public Texture2D boxColorTexture;
+    public Texture2D pyramidColorTexture;
+    public Texture2D cylinderColorTexture;
+    public Texture2D flatColorTexture;
+    public Texture2D sphereColorTexture;
+    public Texture2D rectangleColorTexture;
+
     public Color redColor;
     public Color blueColor;
     public Color greenColor;
 
-    public Texture2D layout1Texture;
-    public Texture2D layout2Texture;
-    public Texture2D layout3Texture;
+    public Texture2D boxLayout1Texture;
+    public Texture2D boxLayout2Texture;
+    public Texture2D boxLayout3Texture;
+    public Texture2D pyramidLayout1Texture;
+    public Texture2D pyramidLayout2Texture;
+    public Texture2D pyramidLayout3Texture;
+    public Texture2D cylinderLayout1Texture;
+    public Texture2D cylinderLayout2Texture;
+    public Texture2D cylinderLayout3Texture;
+    public Texture2D flatLayout1Texture;
+    public Texture2D flatLayout2Texture;
+    public Texture2D flatLayout3Texture;
+    public Texture2D sphereLayout1Texture;
+    public Texture2D sphereLayout2Texture;
+    public Texture2D sphereLayout3Texture;
+    public Texture2D rectangleLayout1Texture;
+    public Texture2D rectangleLayout2Texture;
+    public Texture2D rectangleLayout3Texture;
 
     [Header("InternalObjects")]
     public cakeslice.Outline outline;
@@ -127,6 +149,7 @@ public class PackageController : MonoBehaviour {
 
         Mesh m = null;
         Texture2D t = null;
+        Texture2D colorT = null;
 
         switch (packageShape)
         {
@@ -134,6 +157,7 @@ public class PackageController : MonoBehaviour {
                 {
                     m = boxMesh;
                     t = boxTexture;
+                    colorT = boxColorTexture;
                 }
                 break;
 
@@ -141,6 +165,8 @@ public class PackageController : MonoBehaviour {
                 {
                     m = pyramidMesh;
                     t = pyramidTexture;
+                    colorT = pyramidColorTexture;
+
                 }
                 break;
 
@@ -148,6 +174,7 @@ public class PackageController : MonoBehaviour {
                 {
                     m = flatMesh;
                     t = flatTexture;
+                    colorT = flatColorTexture;
                 }
                 break;
 
@@ -155,6 +182,7 @@ public class PackageController : MonoBehaviour {
                 {
                     m = cylinderMesh;
                     t = cylinderTexture;
+                    colorT = cylinderColorTexture;
                 }
                 break;
 
@@ -162,6 +190,7 @@ public class PackageController : MonoBehaviour {
                 {
                     m = rectangleMesh;
                     t = rectangleTexture;
+                    colorT = rectangleColorTexture;
                 }
                 break;
 
@@ -169,6 +198,7 @@ public class PackageController : MonoBehaviour {
                 {
                     m = sphereMesh;
                     t = sphereTexture;
+                    colorT = sphereColorTexture;
                 }
                 break;
 
@@ -180,6 +210,7 @@ public class PackageController : MonoBehaviour {
         cardboardObject.GetComponent<MeshFilter>().sharedMesh = m;
         cardboardObject.GetComponent<MeshRenderer>().material.mainTexture = t;
         colorObject.GetComponent<MeshFilter>().sharedMesh = m;
+        colorObject.GetComponent<MeshRenderer>().material.mainTexture = colorT;
         layoutObject.GetComponent<MeshFilter>().sharedMesh = m;
     }
 
@@ -224,27 +255,72 @@ public class PackageController : MonoBehaviour {
     {
         packageLayout = _layout;
         Texture2D t = null;
-        switch(packageLayout)
+        switch(GetShape())
         {
-            case PackageLayout.Layout1:
+            case PackageShape.Box:
                 {
-                    t = layout1Texture;
+                    switch(packageLayout)
+                    {
+                        case PackageLayout.Layout1: t = boxLayout1Texture; break;
+                        case PackageLayout.Layout2: t = boxLayout2Texture; break;
+                        case PackageLayout.Layout3: t = boxLayout3Texture; break;
+                    }
                 }
                 break;
 
-            case PackageLayout.Layout2:
+            case PackageShape.Pyramid:
                 {
-                    t = layout2Texture;
+                    switch (packageLayout)
+                    {
+                        case PackageLayout.Layout1: t = pyramidLayout1Texture; break;
+                        case PackageLayout.Layout2: t = pyramidLayout2Texture; break;
+                        case PackageLayout.Layout3: t = pyramidLayout3Texture; break;
+                    }
                 }
                 break;
 
-            case PackageLayout.Layout3:
+            case PackageShape.Flat:
                 {
-                    t = layout3Texture;
+                    switch (packageLayout)
+                    {
+                        case PackageLayout.Layout1: t = flatLayout1Texture; break;
+                        case PackageLayout.Layout2: t = flatLayout2Texture; break;
+                        case PackageLayout.Layout3: t = flatLayout3Texture; break;
+                    }
                 }
                 break;
 
-            default:
+            case PackageShape.Cylinder:
+                {
+                    switch (packageLayout)
+                    {
+                        case PackageLayout.Layout1: t = cylinderLayout1Texture; break;
+                        case PackageLayout.Layout2: t = cylinderLayout2Texture; break;
+                        case PackageLayout.Layout3: t = cylinderLayout3Texture; break;
+                    }
+                }
+                break;
+
+            case PackageShape.Rectangle:
+                {
+                    switch (packageLayout)
+                    {
+                        case PackageLayout.Layout1: t = rectangleLayout1Texture; break;
+                        case PackageLayout.Layout2: t = rectangleLayout2Texture; break;
+                        case PackageLayout.Layout3: t = rectangleLayout3Texture; break;
+                    }
+                }
+                break;
+
+            case PackageShape.Sphere:
+                {
+                    switch (packageLayout)
+                    {
+                        case PackageLayout.Layout1: t = sphereLayout1Texture; break;
+                        case PackageLayout.Layout2: t = sphereLayout2Texture; break;
+                        case PackageLayout.Layout3: t = sphereLayout3Texture; break;
+                    }
+                }
                 break;
         }
 

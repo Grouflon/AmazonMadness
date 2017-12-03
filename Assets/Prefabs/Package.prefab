@@ -130,7 +130,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1532428965521484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9219221, y: 2.28, z: 0.99456376}
+  m_LocalPosition: {x: -6.3168297, y: 1.16, z: 3.8272436}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4729960102487158}
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   packageShape: 0
   packageColor: 0
-  packageLayout: 1
+  packageLayout: 0
   canValidateWinCondition: 1
   destructionTime: 0.5
   destructionScaleEasing:
@@ -438,12 +438,47 @@ MonoBehaviour:
   flatTexture: {fileID: 2800000, guid: 3269f3a85fd0c6e4eb2300259807f9fe, type: 3}
   sphereTexture: {fileID: 2800000, guid: 8012466f8e5eb564daf126e9a5c49de7, type: 3}
   rectangleTexture: {fileID: 2800000, guid: 15364bf5d50f318468b8434ebfd8fece, type: 3}
+  boxColorTexture: {fileID: 2800000, guid: 7b454911eb008e742ae0eba88d13b7d0, type: 3}
+  pyramidColorTexture: {fileID: 2800000, guid: a684a61c23eca854482b93607414cb07, type: 3}
+  cylinderColorTexture: {fileID: 2800000, guid: b6828cc00c65585438c739018e914979,
+    type: 3}
+  flatColorTexture: {fileID: 2800000, guid: eec91ccba4424b84d9ba47aea70326a6, type: 3}
+  sphereColorTexture: {fileID: 2800000, guid: fef8adc32b0c3eb40a49c2a2bb24e628, type: 3}
+  rectangleColorTexture: {fileID: 2800000, guid: c22ef7df028d1fc4b98e1ef4fefcb9c7,
+    type: 3}
   redColor: {r: 1, g: 0, b: 0, a: 1}
   blueColor: {r: 0, g: 0.13103437, b: 1, a: 1}
   greenColor: {r: 0.07844828, g: 0.6691177, b: 0, a: 1}
-  layout1Texture: {fileID: 2800000, guid: ad5eeece5c8a4e0489393a752d1ffdb9, type: 3}
-  layout2Texture: {fileID: 2800000, guid: c06dddca1d1b78642bf638d349bf87f0, type: 3}
-  layout3Texture: {fileID: 2800000, guid: 7f48ffcd4f0581f4aa05fae1281ad3b6, type: 3}
+  boxLayout1Texture: {fileID: 2800000, guid: ad5eeece5c8a4e0489393a752d1ffdb9, type: 3}
+  boxLayout2Texture: {fileID: 2800000, guid: c06dddca1d1b78642bf638d349bf87f0, type: 3}
+  boxLayout3Texture: {fileID: 2800000, guid: 7f48ffcd4f0581f4aa05fae1281ad3b6, type: 3}
+  pyramidLayout1Texture: {fileID: 2800000, guid: 113cf3101602582418f7a8d99f73fa52,
+    type: 3}
+  pyramidLayout2Texture: {fileID: 2800000, guid: 113cf3101602582418f7a8d99f73fa52,
+    type: 3}
+  pyramidLayout3Texture: {fileID: 2800000, guid: 8e5fdf1523c132241a84298085685700,
+    type: 3}
+  cylinderLayout1Texture: {fileID: 2800000, guid: b6828cc00c65585438c739018e914979,
+    type: 3}
+  cylinderLayout2Texture: {fileID: 2800000, guid: bf9a0b6225c211f4594161e11f6b467f,
+    type: 3}
+  cylinderLayout3Texture: {fileID: 2800000, guid: 93cf6b254c15ad644a57eeb1a0509dbe,
+    type: 3}
+  flatLayout1Texture: {fileID: 2800000, guid: 6eb50f34c8f54c640833f18e268cf0d3, type: 3}
+  flatLayout2Texture: {fileID: 2800000, guid: 47436ab8d8b388246b667f11934150f7, type: 3}
+  flatLayout3Texture: {fileID: 2800000, guid: db7d97230a3044848a5c951bd1e71d7c, type: 3}
+  sphereLayout1Texture: {fileID: 2800000, guid: 06ee6172ec835834abc9c76fcc16dd3c,
+    type: 3}
+  sphereLayout2Texture: {fileID: 2800000, guid: eb979c51dbe15c740932342572dc2ad2,
+    type: 3}
+  sphereLayout3Texture: {fileID: 2800000, guid: de096d7fd81eb5a4c95d1379785a39f1,
+    type: 3}
+  rectangleLayout1Texture: {fileID: 2800000, guid: 8fccd2f8675f7e0488dbada509e171bc,
+    type: 3}
+  rectangleLayout2Texture: {fileID: 2800000, guid: 46ceb04ed9ba40f4e8d56d4baa9ebd76,
+    type: 3}
+  rectangleLayout3Texture: {fileID: 2800000, guid: 3e57b75c71fde544789696f5a94efa1b,
+    type: 3}
   outline: {fileID: 114772296675721926}
   cardboardObject: {fileID: 23289180690006798}
   colorObject: {fileID: 23582603664219600}
