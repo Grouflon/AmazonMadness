@@ -3,7 +3,9 @@ Library/**
 Temp/**
 obj/**
 UnityPackageManager/**
+Assets/TextMesh Pro/Examples.meta
 Assets/TextMesh Pro/Examples/**
+Assets/TextMesh Pro/User Guide.meta
 Assets/TextMesh Pro/User Guide/**
 
 **.csproj
