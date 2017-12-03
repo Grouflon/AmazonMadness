@@ -19,6 +19,7 @@ AudioMixerController:
   - guids:
     - ed4d0040a70472942af957e7934dc0eb
     - e9962e6180fc8e94392339af2e141561
+    - 4dad4c2601f9c014091341b68c304ce5
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -32,6 +33,7 @@ AudioMixerGroupController:
   m_GroupID: ed4d0040a70472942af957e7934dc0eb
   m_Children:
   - {fileID: 243265105249573990}
+  - {fileID: 243815039473536868}
   m_Volume: 774ffe6920b8b6840a9a6e153f065c99
   m_Pitch: 4b648c477f80bc54f9755085bd1d9106
   m_Effects:
@@ -83,6 +85,23 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &243815039473536868
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Gates
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 4dad4c2601f9c014091341b68c304ce5
+  m_Children: []
+  m_Volume: 9d860cd72dbe08c48a6ee3a63f8c9dd7
+  m_Pitch: 3878169d5a26d6947a8e403a46c5b989
+  m_Effects:
+  - {fileID: 244695911294595218}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &244216886097513006
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -92,6 +111,19 @@ AudioMixerEffectController:
   m_EffectID: 04b812d2fb1755c4f877c36e029d6a14
   m_EffectName: Attenuation
   m_MixLevel: 5355d38013a152c47927271d4407caad
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &244695911294595218
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 15fc0adbe58a8a84ea988970117ebd68
+  m_EffectName: Attenuation
+  m_MixLevel: 988a7e9d6039bce4ca7f9bf813872f71
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0

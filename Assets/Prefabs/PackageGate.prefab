@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4207415981114150}
   - component: {fileID: 65549433909470678}
   - component: {fileID: 114476782309950848}
+  - component: {fileID: 114526895607861132}
   m_Layer: 0
   m_Name: PackageGate
   m_TagString: Untagged
@@ -179,7 +180,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1283833409258316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5480437, y: 2.22, z: 8.500168}
+  m_LocalPosition: {x: 1.88, y: 2.8, z: 8.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4348388004206946}
@@ -509,11 +510,26 @@ MonoBehaviour:
   objectiveDisplayTransform: {fileID: 4003143864886120}
   packagePrefab: {fileID: 114688206956143226, guid: 8b95bfef2a278b047894b37a4b4f2ae6,
     type: 2}
+  objectiveExpirationTime: 20
+  activationTime: 0
   spinSpeed: 70
   viewAngleAmplitude: 9
   viewAnglePhase: 3
   wiggleAmplitude: 0.02
   wigglePhase: 2
+  timerText: {fileID: 0}
+--- !u!114 &114526895607861132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1283833409258316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84424555fabbd94408b27a353ebd5e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packageGateController: {fileID: 114476782309950848}
 --- !u!136 &136466706173198820
 CapsuleCollider:
   m_ObjectHideFlags: 1
