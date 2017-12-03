@@ -205,7 +205,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1840397818240046}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 2.255, y: 4.997, z: -0.37}
+  m_LocalPosition: {x: 2.68, y: 4.997, z: -0.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4207415981114150}
@@ -218,8 +218,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1543180278977558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.59, y: 0, z: -0}
+  m_LocalScale: {x: 1.4581305, y: 1, z: 1}
   m_Children:
   - {fileID: 4097148881142242}
   - {fileID: 4373072114589128}
@@ -232,8 +232,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1283833409258316}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5480437, y: -0.08, z: 8.500168}
+  m_LocalRotation: {x: -0, y: -0.7071158, z: -0, w: 0.70709777}
+  m_LocalPosition: {x: -0.15812683, y: -3.1221452, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4337855205001362}
@@ -242,7 +242,7 @@ Transform:
   - {fileID: 4133727470348236}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00101, z: 0}
 --- !u!4 &4337855205001362
 Transform:
   m_ObjectHideFlags: 1
@@ -250,7 +250,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1656536959484444}
   m_LocalRotation: {x: -0.05770659, y: -0, z: -0, w: 0.9983336}
-  m_LocalPosition: {x: 0, y: 6.14, z: -0.42}
+  m_LocalPosition: {x: -0.48, y: 6.14, z: -0.42}
   m_LocalScale: {x: 2.2584403, y: 1, z: 0.24605036}
   m_Children:
   - {fileID: 224690528635345728}
@@ -549,8 +549,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.89824, y: 5.5190406, z: 2.0165815}
-  m_Center: {x: -0.008050442, y: 2.7290175, z: 1.2155795}
+  m_Size: {x: 6.0097485, y: 5.5190406, z: 2.0165815}
+  m_Center: {x: -0.48518133, y: 2.7290175, z: 1.2155797}
 --- !u!65 &65584334635497562
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -839,8 +839,8 @@ MonoBehaviour:
   objectiveDisplayTransform: {fileID: 4003143864886120}
   packagePrefab: {fileID: 114688206956143226, guid: 8b95bfef2a278b047894b37a4b4f2ae6,
     type: 2}
-  objectiveExpirationTime: 20
-  activationTime: 0
+  objectiveExpirationTime: 30
+  activationTime: 3
   autoGetObjective: 1
   spinSpeed: 70
   viewAngleAmplitude: 9

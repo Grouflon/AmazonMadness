@@ -76,6 +76,9 @@ public class PackageGateController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if (!m_game.IsGameStarted())
+            return;
+
         m_lifeTimer += Time.deltaTime;
         if (autoGetObjective && GetObjective() == null && m_lifeTimer > activationTime)
         {
