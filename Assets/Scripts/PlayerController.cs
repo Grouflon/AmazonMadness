@@ -53,6 +53,12 @@ public class PlayerController : MonoBehaviour
             m_jumpGate = false;
         }
 
+        if (!m_jumpGate && !m_previousTouchGround && feet.IsTouching())
+        {
+            AudioManager.Instance.Play("Player_Land", this.transform.position);
+        }
+
+
         // RELEASE GRAB
         if (input.IsGrabReleased())
         {
@@ -111,6 +117,8 @@ public class PlayerController : MonoBehaviour
         {
             isWalking = false;
         }
+
+        m_previousTouchGround = feet.IsTouching();
     }
 
     private void FixedUpdate()
@@ -233,6 +241,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody m_rigidbody;
 
     bool m_jumpGate = false;
+    bool m_previousTouchGround = false;
 
     Vector3 m_accumulatedForce;
 
