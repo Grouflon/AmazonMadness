@@ -191,6 +191,11 @@ public class PackageController : MonoBehaviour
                     m = rectangleMesh;
                     t = rectangleTexture;
                     colorT = rectangleColorTexture;
+
+                    Vector3 localScale = transform.localScale;
+                    localScale.x *= 1.3f;
+                    localScale.z *= 0.8f;
+                    transform.localScale = localScale;
                 }
                 break;
 

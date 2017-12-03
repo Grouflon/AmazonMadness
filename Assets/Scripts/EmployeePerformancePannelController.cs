@@ -13,8 +13,9 @@ public class EmployeePerformancePannelController : MonoBehaviour
     public Transform negativeBarContainer;
     public Transform positiveBarContainer;
     public TMPro.TextMeshPro[] firedTexts;
+    public TMPro.TextMeshPro scoreText;
 
-	void Start ()
+    void Start ()
     {
         m_game = FindObjectOfType<GameController>();
 	}
@@ -49,10 +50,13 @@ public class EmployeePerformancePannelController : MonoBehaviour
                 m_blinkStartTime = Time.time;
             }
 
+            scoreText.gameObject.SetActive(false);
+
             float t = ((Time.time - m_blinkStartTime) % firedBlinkPhase) / firedBlinkPhase;
 
             foreach (TMPro.TextMeshPro text in firedTexts)
             {
+                text.gameObject.SetActive(true);
                 if (t < 0.5f)
                 {
                     text.color = firedOnColor;
@@ -69,7 +73,20 @@ public class EmployeePerformancePannelController : MonoBehaviour
 
             foreach (TMPro.TextMeshPro text in firedTexts)
             {
+                text.gameObject.SetActive(false);
                 text.color = firedOffColor;
+            }
+
+            scoreText.gameObject.SetActive(true);
+            scoreText.text = score.ToString("000");
+
+            if (score < 0)
+            {
+                scoreText.color = negativeBarContainer.GetComponentInChildren<MeshRenderer>().material.color;
+            }
+            else
+            {
+                scoreText.color = positiveBarContainer.GetComponentInChildren<MeshRenderer>().material.color;
             }
         }
     }
