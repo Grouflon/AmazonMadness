@@ -42,7 +42,7 @@ public class Alarm : MonoBehaviour {
         if (isOn)
         {
             counter += (Time.deltaTime * speed) % (2 * Mathf.PI);
-            light.intensity = ((Mathf.Sin(counter) + 1f) * 10f);
+            light.intensity = ((Mathf.Sin(counter) + 1f) * 4f);
         }
         else
         {
