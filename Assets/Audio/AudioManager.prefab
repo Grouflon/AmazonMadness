@@ -264,7 +264,7 @@ MonoBehaviour:
   AttenuationPrefab: {fileID: 1156118140507754, guid: 7e4d039a48819064e82afc76ce7537de,
     type: 2}
   Output: {fileID: 243265105249573990, guid: fab30f2b5b6b42441b925e3ad70a1e43, type: 2}
-  MaxDistance: 20
+  MaxDistance: 60
   Clips:
   - {fileID: 8300000, guid: 33deaf1896c964949adcf09360fc7620, type: 3}
   - {fileID: 8300000, guid: 903f807c0753fa54e83d40f12afd6190, type: 3}
@@ -357,7 +357,7 @@ MonoBehaviour:
   AttenuationPrefab: {fileID: 1156118140507754, guid: 7e4d039a48819064e82afc76ce7537de,
     type: 2}
   Output: {fileID: 243265105249573990, guid: fab30f2b5b6b42441b925e3ad70a1e43, type: 2}
-  MaxDistance: 15
+  MaxDistance: 30
   Clips:
   - {fileID: 8300000, guid: 7a2a194fb8f045a4bb9fa6370a34e65a, type: 3}
   - {fileID: 8300000, guid: 0983394bca324c64da3a810c3b9b947f, type: 3}
