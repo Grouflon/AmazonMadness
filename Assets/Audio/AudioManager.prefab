@@ -27,6 +27,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1170406925145284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4210432633574986}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1199381120946766
 GameObject:
   m_ObjectHideFlags: 1
@@ -53,6 +68,22 @@ GameObject:
   - component: {fileID: 4486665099274990}
   m_Layer: 0
   m_Name: Ambient
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1337564552297214
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4507528645162510}
+  - component: {fileID: 114742967023816828}
+  m_Layer: 0
+  m_Name: Timer_Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,6 +246,37 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1920040038984022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4260432307470342}
+  m_Layer: 0
+  m_Name: Game
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1972006628941688
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4859008206932222}
+  - component: {fileID: 114484664418678438}
+  m_Layer: 0
+  m_Name: Mus_LevelStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1985069204368744
 GameObject:
   m_ObjectHideFlags: 1
@@ -245,8 +307,24 @@ Transform:
   - {fileID: 4217167722146032}
   - {fileID: 4334058000942780}
   - {fileID: 4486665099274990}
+  - {fileID: 4260432307470342}
+  - {fileID: 4210432633574986}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4210432633574986
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1170406925145284}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4859008206932222}
+  m_Father: {fileID: 4160378820645924}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4212180498586770
 Transform:
@@ -276,6 +354,20 @@ Transform:
   - {fileID: 4293754462719866}
   m_Father: {fileID: 4160378820645924}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4260432307470342
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1920040038984022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4507528645162510}
+  m_Father: {fileID: 4160378820645924}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4293754462719866
 Transform:
@@ -358,6 +450,19 @@ Transform:
   m_Father: {fileID: 4160378820645924}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4507528645162510
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1337564552297214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4260432307470342}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4535888456501580
 Transform:
   m_ObjectHideFlags: 1
@@ -408,6 +513,19 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4486665099274990}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4859008206932222
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1972006628941688}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4210432633574986}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4980578667843016
@@ -528,6 +646,41 @@ MonoBehaviour:
   MaxVolume: 0.5036336
   MinPitch: 0.8140712
   MaxPitch: 1.2055002
+  MinSpawnTime: 0
+  MaxSpawnTime: 0
+  GranularSpawnPositionRandomness: 0
+  OverridePositionToListener: 0
+  RandomStartPosition: 0
+  PlayingInstances: []
+  Fading: 0
+  isPlaying: 0
+--- !u!114 &114484664418678438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1972006628941688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Mus_LevelStart
+  PlaybackMode: 0
+  AttenuationPrefab: {fileID: 1551532494301684, guid: 52c200ff8a357c64bbc5f052d0952663,
+    type: 2}
+  Output: {fileID: 243994489037826410, guid: fab30f2b5b6b42441b925e3ad70a1e43, type: 2}
+  MaxDistance: 100
+  Clips:
+  - {fileID: 8300000, guid: c1167ef355e384c45b62af862c2116d1, type: 3}
+  MinDelay: 2.5
+  MaxDelay: 2.5
+  FadeInTime: 0
+  FadeOutTime: 0
+  MinVolume: 1
+  MaxVolume: 1
+  MinPitch: 1
+  MaxPitch: 1
   MinSpawnTime: 0
   MaxSpawnTime: 0
   GranularSpawnPositionRandomness: 0
@@ -698,6 +851,41 @@ MonoBehaviour:
   MaxVolume: 0.34994954
   MinPitch: 0.517868
   MaxPitch: 0.6460088
+  MinSpawnTime: 0
+  MaxSpawnTime: 0
+  GranularSpawnPositionRandomness: 0
+  OverridePositionToListener: 0
+  RandomStartPosition: 0
+  PlayingInstances: []
+  Fading: 0
+  isPlaying: 0
+--- !u!114 &114742967023816828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1337564552297214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Timer_Start
+  PlaybackMode: 0
+  AttenuationPrefab: {fileID: 1551532494301684, guid: 52c200ff8a357c64bbc5f052d0952663,
+    type: 2}
+  Output: {fileID: 24300002, guid: fab30f2b5b6b42441b925e3ad70a1e43, type: 2}
+  MaxDistance: 100
+  Clips:
+  - {fileID: 8300000, guid: 0b37b8f0519046c4fa1e57295b96ee0b, type: 3}
+  MinDelay: 0
+  MaxDelay: 0
+  FadeInTime: 0
+  FadeOutTime: 0
+  MinVolume: 0.6
+  MaxVolume: 0.6
+  MinPitch: 0.9
+  MaxPitch: 1
   MinSpawnTime: 0
   MaxSpawnTime: 0
   GranularSpawnPositionRandomness: 0

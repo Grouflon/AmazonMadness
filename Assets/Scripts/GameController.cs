@@ -83,6 +83,7 @@ public class GameController : MonoBehaviour
                 return;
             }
             m_isGameStarted = true;
+            AudioManager.Instance.Play("Timer_Start");
         }
 
         if (m_isGameOver)

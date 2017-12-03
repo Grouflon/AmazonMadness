@@ -7,5 +7,6 @@ public class AmbientAudio : MonoBehaviour
     void Start()
     {
         AudioManager.Instance.PlayAmbientSound("Room");
+        AudioManager.Instance.PlayMusic("Mus_LevelStart");
     }
 }
