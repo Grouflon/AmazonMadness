@@ -27,7 +27,7 @@ public class PackageGateAudio : MonoBehaviour {
 
     private void ObjectiveExpiredSfx(PackageGateController _gate, PackageController _package)
     {
-        AudioManager.Instance.Play("Gate_WrongPackage", transform.position);
+        AudioManager.Instance.Play("Gate_TimeOut", transform.position);
     }
 
     void Update()
