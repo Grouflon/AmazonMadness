@@ -42,15 +42,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1696958015794488
+--- !u!1 &1554235761198934
 GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4973965457603870}
-  - component: {fileID: 114952440879832816}
+  - component: {fileID: 4334138165269794}
+  - component: {fileID: 114725563942918656}
+  m_Layer: 0
+  m_Name: Player_Footsteps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1693040100067514
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4293754462719866}
+  - component: {fileID: 114255836774983378}
   m_Layer: 0
   m_Name: Gate_GoodPackage
   m_TagString: Untagged
@@ -84,6 +100,21 @@ GameObject:
   - component: {fileID: 4217167722146032}
   m_Layer: 0
   m_Name: Gate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1806107142580116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4334058000942780}
+  m_Layer: 0
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,6 +180,7 @@ Transform:
   m_Children:
   - {fileID: 4980578667843016}
   - {fileID: 4217167722146032}
+  - {fileID: 4334058000942780}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -163,9 +195,49 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4535888456501580}
-  - {fileID: 4973965457603870}
+  - {fileID: 4293754462719866}
   m_Father: {fileID: 4160378820645924}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4293754462719866
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1693040100067514}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4217167722146032}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4334058000942780
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1806107142580116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4334138165269794}
+  m_Father: {fileID: 4160378820645924}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4334138165269794
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1554235761198934}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4334058000942780}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4369646693577300
 Transform:
@@ -219,19 +291,6 @@ Transform:
   m_Father: {fileID: 4980578667843016}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4973965457603870
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1696958015794488}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4217167722146032}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4980578667843016
 Transform:
   m_ObjectHideFlags: 1
@@ -248,6 +307,41 @@ Transform:
   m_Father: {fileID: 4160378820645924}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114255836774983378
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1693040100067514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Gate_GoodPackage
+  PlaybackMode: 0
+  AttenuationPrefab: {fileID: 1156118140507754, guid: 7e4d039a48819064e82afc76ce7537de,
+    type: 2}
+  Output: {fileID: 243815039473536868, guid: fab30f2b5b6b42441b925e3ad70a1e43, type: 2}
+  MaxDistance: 50
+  Clips:
+  - {fileID: 8300000, guid: cd1473b874f13b04baf6efbe6b5f6a8c, type: 3}
+  MinDelay: 0.3
+  MaxDelay: 0.3
+  FadeInTime: 0
+  FadeOutTime: 0
+  MinVolume: 0.5
+  MaxVolume: 0.5
+  MinPitch: 0.9
+  MaxPitch: 1.1
+  MinSpawnTime: 0
+  MaxSpawnTime: 0
+  GranularSpawnPositionRandomness: 0
+  OverridePositionToListener: 0
+  RandomStartPosition: 0
+  PlayingInstances: []
+  Fading: 0
+  isPlaying: 0
 --- !u!114 &114454590549387908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -276,8 +370,8 @@ MonoBehaviour:
   MaxDelay: 0.098768346
   FadeInTime: 0.1
   FadeOutTime: 0
-  MinVolume: 0.15302855
-  MaxVolume: 0.32512236
+  MinVolume: 0.12271531
+  MaxVolume: 0.5036336
   MinPitch: 0.8140712
   MaxPitch: 1.2055002
   MinSpawnTime: 0
@@ -370,10 +464,54 @@ MonoBehaviour:
   MaxDelay: 0.2
   FadeInTime: 0.1
   FadeOutTime: 0
-  MinVolume: 0.045048118
-  MaxVolume: 0.12940782
+  MinVolume: 0.11065541
+  MaxVolume: 0.4779387
   MinPitch: 0.8336426
   MaxPitch: 1.1565714
+  MinSpawnTime: 0
+  MaxSpawnTime: 0
+  GranularSpawnPositionRandomness: 0
+  OverridePositionToListener: 0
+  RandomStartPosition: 0
+  PlayingInstances: []
+  Fading: 0
+  isPlaying: 0
+--- !u!114 &114725563942918656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1554235761198934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Player_Footsteps
+  PlaybackMode: 0
+  AttenuationPrefab: {fileID: 1156118140507754, guid: 7e4d039a48819064e82afc76ce7537de,
+    type: 2}
+  Output: {fileID: 243488375777149908, guid: fab30f2b5b6b42441b925e3ad70a1e43, type: 2}
+  MaxDistance: 50
+  Clips:
+  - {fileID: 8300000, guid: d767f55d463ce2b4b86cafaabc178aa4, type: 3}
+  - {fileID: 8300000, guid: 603a4e87692de3e47ac5664a2382ef02, type: 3}
+  - {fileID: 8300000, guid: 223d82cacf6739041bedbfdb95df3cc1, type: 3}
+  - {fileID: 8300000, guid: ad52e07404be1a44f9224c34ae5a8e8a, type: 3}
+  - {fileID: 8300000, guid: ab7cbf4fb9256c54d93943455c29f499, type: 3}
+  - {fileID: 8300000, guid: b3b639b1e10019c429ff10a8f578eeca, type: 3}
+  - {fileID: 8300000, guid: 01734c51858a267489126b962a511121, type: 3}
+  - {fileID: 8300000, guid: ca29c133b25fd324d98eba282b4faf59, type: 3}
+  - {fileID: 8300000, guid: 9ed934edfeede394e9bcac2e0d8a72dd, type: 3}
+  - {fileID: 8300000, guid: 9400bc36bfa15274f8ac57765e0a43d0, type: 3}
+  MinDelay: 0.1
+  MaxDelay: 0.1
+  FadeInTime: 0
+  FadeOutTime: 0
+  MinVolume: 0.01
+  MaxVolume: 0.25
+  MinPitch: 0.95
+  MaxPitch: 1
   MinSpawnTime: 0
   MaxSpawnTime: 0
   GranularSpawnPositionRandomness: 0
@@ -411,44 +549,9 @@ MonoBehaviour:
   FadeInTime: 0.1
   FadeOutTime: 0
   MinVolume: 0.018053012
-  MaxVolume: 0.055171266
+  MaxVolume: 0.2842046
   MinPitch: 0.9352118
   MaxPitch: 1.1700691
-  MinSpawnTime: 0
-  MaxSpawnTime: 0
-  GranularSpawnPositionRandomness: 0
-  OverridePositionToListener: 0
-  RandomStartPosition: 0
-  PlayingInstances: []
-  Fading: 0
-  isPlaying: 0
---- !u!114 &114952440879832816
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1696958015794488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Gate_GoodPackage
-  PlaybackMode: 0
-  AttenuationPrefab: {fileID: 1156118140507754, guid: 7e4d039a48819064e82afc76ce7537de,
-    type: 2}
-  Output: {fileID: 243815039473536868, guid: fab30f2b5b6b42441b925e3ad70a1e43, type: 2}
-  MaxDistance: 50
-  Clips:
-  - {fileID: 8300000, guid: cd1473b874f13b04baf6efbe6b5f6a8c, type: 3}
-  MinDelay: 0.3
-  MaxDelay: 0.3
-  FadeInTime: 0
-  FadeOutTime: 0
-  MinVolume: 0.5
-  MaxVolume: 0.5
-  MinPitch: 0.9
-  MaxPitch: 1.1
   MinSpawnTime: 0
   MaxSpawnTime: 0
   GranularSpawnPositionRandomness: 0
