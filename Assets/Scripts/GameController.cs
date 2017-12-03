@@ -76,7 +76,9 @@ public class GameController : MonoBehaviour
     {
         if (!m_isGameStarted)
         {
-            if (Time.time < levelWarmUpDuration)
+            m_warmUpTimer += Time.deltaTime;
+
+            if (m_warmUpTimer < levelWarmUpDuration)
             {
                 return;
             }
@@ -170,6 +172,7 @@ public class GameController : MonoBehaviour
     bool m_isGameStarted = false;
     bool m_isGameOver;
     float m_timer = 0.0f;
+    float m_warmUpTimer = 0.0f;
 
     List<PackageGateController> m_gates;
     List<PackageSpawnerController> m_spawners;

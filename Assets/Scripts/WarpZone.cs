@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WarpZone : MonoBehaviour {
-
+public class WarpZone : MonoBehaviour
+{
+    public bool exitGame = false;
     public string targetSceneName;
     public bool startActive = true;
     public float fadeOutTime = 2.0f;
@@ -64,7 +65,14 @@ public class WarpZone : MonoBehaviour {
         }
         yield return new WaitForSeconds(fadeOutTime);
 
-        SceneManager.LoadScene(targetSceneName);
+        if (exitGame)
+        {
+            Application.Quit();
+        }
+        else
+        {
+            SceneManager.LoadScene(targetSceneName);
+        }
     }
 
     bool m_hasWarped = false;
