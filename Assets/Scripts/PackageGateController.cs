@@ -19,7 +19,7 @@ public class PackageGateController : MonoBehaviour
     public float viewAnglePhase = 3.0f;
     public float wiggleAmplitude = 1.0f;
     public float wigglePhase = 1.0f;
-    public Text timerText;
+    public TMPro.TextMeshPro timerText;
 
     public delegate void PackageGateDelegate(PackageGateController _gate, PackageController _package);
 
@@ -42,11 +42,11 @@ public class PackageGateController : MonoBehaviour
         if (m_objective == null)
         {
             m_objectiveProxy.gameObject.SetActive(false);
-            timerText.enabled = false;
+            timerText.gameObject.SetActive(false);
         }
         else
         {
-            timerText.enabled = true;
+            timerText.gameObject.SetActive(true);
             m_objectiveProxy.gameObject.SetActive(true);
             m_objectiveProxy.SetShape(m_objective.GetShape());
             m_objectiveProxy.SetColor(m_objective.GetColor());

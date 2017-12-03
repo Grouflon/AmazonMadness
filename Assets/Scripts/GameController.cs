@@ -18,6 +18,11 @@ public class GameController : MonoBehaviour
         return m_score;
     }
 
+    public float GetRemainingTime()
+    {
+        return m_isGameOver ? 0.0f : Mathf.Max(0.0f, levelDuration - m_timer);
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -51,7 +56,15 @@ public class GameController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
+        if (m_isGameOver)
+            return;
+
         m_timer += Time.deltaTime;
+
+        if (m_timer > levelDuration)
+        {
+            GameOver();
+        }
     }
 
     void GameOver()
