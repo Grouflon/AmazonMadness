@@ -19,6 +19,13 @@ public class Conveyor : MonoBehaviour
 
     void OnCollisionStay(Collision col)
     {
+        PlayerController player = col.collider.GetComponent<PlayerController>();
+        if (player != null)
+        {
+            player.AddForce(speed * speedToForce * transform.forward);
+            return;
+        }
+
         Rigidbody _colliderRb = col.gameObject.GetComponent<Rigidbody>();
         _colliderRb.velocity = speed * speedToForce * transform.forward;
     }

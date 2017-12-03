@@ -140,8 +140,9 @@ public class PlayerController : MonoBehaviour
         velocity += transform.forward * input.GetForwardAxis() * forwardSpeed;
         velocity += transform.right * input.GetRightAxis() * lateralSpeed;
         velocity.y = m_rigidbody.velocity.y;
-
         m_rigidbody.velocity = velocity;
+
+        m_rigidbody.AddForce(ComsumeAccumulatedForce(), ForceMode.Force);
 
         if (m_grabbedObject != null)
         {
@@ -200,6 +201,18 @@ public class PlayerController : MonoBehaviour
         _package.Destroyed -= OnPackageDestroyed;
     }
 
+    public void AddForce(Vector3 _force)
+    {
+        m_accumulatedForce += _force;
+    }
+
+    Vector3 ComsumeAccumulatedForce()
+    {
+        Vector3 force = m_accumulatedForce;
+        m_accumulatedForce = Vector3.zero;
+        return force;
+    }
+
     Vector3 m_grabbedObjectUp;
     Vector3 m_grabbedObjectForward;
     Vector3 m_grabbedObjectPosition;
@@ -208,6 +221,8 @@ public class PlayerController : MonoBehaviour
     Rigidbody m_rigidbody;
 
     bool m_jumpGate = false;
+
+    Vector3 m_accumulatedForce;
 
     List<PackageController> m_outlinedObjects;
 }

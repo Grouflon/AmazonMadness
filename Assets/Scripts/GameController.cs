@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public float startFadeInTime = 2.0f;
+
     public int validPackageScore = 5;
     public int invalidPackageScore = -10;
     public int expiredPackageScore = -20;
@@ -32,6 +34,16 @@ public class GameController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Blackout blackout = FindObjectOfType<Blackout>();
+        if (blackout)
+        {
+            blackout.FadeTo(Color.black, 0.0f);
+
+            Color c = Color.black;
+            c.a = 0.0f;
+            blackout.FadeTo(c, 1.0f);
+        }
+
         m_gates = new List<PackageGateController>();
         m_spawners = new List<PackageSpawnerController>();
         m_packages = new List<PackageController>();
