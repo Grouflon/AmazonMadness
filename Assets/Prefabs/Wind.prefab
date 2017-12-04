@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4834955960116354}
   - component: {fileID: 198266729159629724}
   - component: {fileID: 199142532602195824}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ ParticleSystem:
   stopAction: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -101,7 +101,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2031296324
+  randomSeed: -1957847372
   InitialModule:
     serializedVersion: 3
     enabled: 1
