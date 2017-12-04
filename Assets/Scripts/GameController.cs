@@ -117,10 +117,11 @@ public class GameController : MonoBehaviour
         {
             spawner.enabled = false;
         }
-
+        AudioManager.Instance.Play("Timer_End");
         // WIN
         if (m_score >= oneStarScore)
         {
+            AudioManager.Instance.Play("EndGame_Win", GameObject.Find("Speaker").transform.position);
             foreach(WarpZone warpZone in warpZonesToActivateOnWin)
             {
                 warpZone.SetWarpEnabled(true);
@@ -128,7 +129,7 @@ public class GameController : MonoBehaviour
         }
         else // LOSE
         {
-
+            AudioManager.Instance.Play("EndGame_Loose", GameObject.Find("Speaker").transform.position);
         }
     }
 
