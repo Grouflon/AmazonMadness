@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class AmbientAudio : MonoBehaviour
 {
+    public bool playMusic = true;
+
     public GameObject speaker;
 
     void Start()
     {
         AudioManager.Instance.PlayAmbientSound("Room");
-        AudioManager.Instance.Play("Mus_LevelStart", speaker.transform.position);
+
+        if (playMusic)
+            AudioManager.Instance.Play("Mus_LevelStart", speaker.transform.position);
     }
 }
