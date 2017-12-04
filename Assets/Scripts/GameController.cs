@@ -11,7 +11,6 @@ public class GameController : MonoBehaviour
     public int expiredPackageScore = -20;
     public int loseScoreLimit = -50;
     public int oneStarScore = 10;
-    public int twoStarScore = 20;
     public int threeStarScore = 30;
     public float levelDuration = 30.0f;
     public float levelWarmUpDuration = 5.0f;
@@ -29,6 +28,11 @@ public class GameController : MonoBehaviour
     public bool IsGameStarted()
     {
         return m_isGameStarted;
+    }
+
+    public bool IsGameOver()
+    {
+        return m_isGameOver;
     }
 
     // Use this for initialization

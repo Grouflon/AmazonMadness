@@ -11,7 +11,9 @@ public class EmployeePerformancePannelController : MonoBehaviour
 
     [Header("Internal Objects")]
     public Transform negativeBarContainer;
+    public Transform negativeBar;
     public Transform positiveBarContainer;
+    public Transform positiveBar;
     public TMPro.TextMeshPro[] firedTexts;
     public TMPro.TextMeshPro scoreText;
 
@@ -23,26 +25,60 @@ public class EmployeePerformancePannelController : MonoBehaviour
 	void Update ()
     {
         int score = m_game.GetScore();
+        float scoreRange = m_game.threeStarScore - m_game.loseScoreLimit;
+        float negativeRange = m_game.oneStarScore - m_game.loseScoreLimit;
+        float positiveRange = scoreRange - negativeRange;
+        float negativeRatio = negativeRange / scoreRange;
+        float positiveRatio = positiveRange / scoreRange;
 
+        Debug.Log(negativeRatio);
+        Debug.Log(positiveRatio);
+
+        Vector3 negativeContainerScale = negativeBarContainer.localScale;
+        negativeContainerScale.z = negativeRatio;
+        negativeBarContainer.localScale = negativeContainerScale;
+
+        Vector3 positiveContainerScale = positiveBarContainer.localScale;
+        positiveContainerScale.z = positiveRatio;
+        positiveBarContainer.localScale = positiveContainerScale;
+        Vector3 positiveContainerPosition = positiveBarContainer.localPosition;
+        positiveContainerPosition.z = negativeRatio;
+        positiveBarContainer.localPosition = positiveContainerPosition;
+
+        float scoreRatio = ((float)(score - m_game.loseScoreLimit)) / scoreRange;
+
+        if (scoreRatio <= 0.0f)
         {
-            float loseRatio = Mathf.Clamp01((float)Mathf.Min(score, 0) / (float)m_game.loseScoreLimit);
-            Vector3 negativeScale = negativeBarContainer.transform.localScale;
-            negativeScale.x = loseRatio;
-            negativeBarContainer.transform.localScale = negativeScale;
+            negativeBar.gameObject.SetActive(false);
+            positiveBar.gameObject.SetActive(false);
+        }
+        else if (scoreRatio < negativeRatio)
+        {
+            negativeBar.gameObject.SetActive(true);
+            positiveBar.gameObject.SetActive(false);
 
-            negativeBarContainer.gameObject.SetActive(Mathf.Abs(loseRatio) > Mathf.Epsilon);
+            Vector3 negativeScale = negativeBar.localScale;
+            negativeScale.z = scoreRatio;
+            negativeBar.localScale = negativeScale;
+        }
+        else
+        {
+            negativeBar.gameObject.SetActive(true);
+            positiveBar.gameObject.SetActive(true);
+
+            Vector3 negativeScale = negativeBar.localScale;
+            negativeScale.z = negativeRatio;
+            negativeBar.localScale = negativeScale;
+
+            Vector3 positiveScale = positiveBar.localScale;
+            positiveScale.z = scoreRatio - negativeRatio;
+            positiveBar.localScale = positiveScale;
+            Vector3 positivePosition = positiveBar.localPosition;
+            positivePosition.z = negativeRatio;
+            positiveBar.localPosition = positivePosition;
         }
 
-        {
-            float winRatio = Mathf.Clamp01((float)Mathf.Max(score, 0) / (float)m_game.threeStarScore);
-            Vector3 posititveScale = positiveBarContainer.transform.localScale;
-            posititveScale.x = winRatio;
-            positiveBarContainer.transform.localScale = posititveScale;
-
-            positiveBarContainer.gameObject.SetActive(Mathf.Abs(winRatio) > Mathf.Epsilon);
-        }
-
-        if (score <= m_game.loseScoreLimit)
+        if (m_game.IsGameOver() && score < m_game.oneStarScore)
         {
             if (!m_hasBlinkStarted)
             {
@@ -54,18 +90,27 @@ public class EmployeePerformancePannelController : MonoBehaviour
 
             float t = ((Time.time - m_blinkStartTime) % firedBlinkPhase) / firedBlinkPhase;
 
-            foreach (TMPro.TextMeshPro text in firedTexts)
+            if (t < 0.5f)
             {
-                text.gameObject.SetActive(true);
-                if (t < 0.5f)
+                foreach (TMPro.TextMeshPro text in firedTexts)
                 {
+                    text.gameObject.SetActive(true);
                     text.color = firedOnColor;
                 }
-                else
+            }
+            else
+            {
+                foreach (TMPro.TextMeshPro text in firedTexts)
                 {
+                    text.gameObject.SetActive(false);
                     text.color = firedOffColor;
                 }
+
+                scoreText.gameObject.SetActive(true);
+                scoreText.text = score.ToString("000");
+                scoreText.color = negativeBarContainer.GetComponentInChildren<MeshRenderer>().material.color;
             }
+            
         }
         else
         {
@@ -80,7 +125,7 @@ public class EmployeePerformancePannelController : MonoBehaviour
             scoreText.gameObject.SetActive(true);
             scoreText.text = score.ToString("000");
 
-            if (score < 0)
+            if (scoreRatio < negativeRatio)
             {
                 scoreText.color = negativeBarContainer.GetComponentInChildren<MeshRenderer>().material.color;
             }

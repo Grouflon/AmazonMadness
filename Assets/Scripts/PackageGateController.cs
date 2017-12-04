@@ -43,9 +43,11 @@ public class PackageGateController : MonoBehaviour
         {
             m_objectiveProxy.gameObject.SetActive(false);
             timerText.gameObject.SetActive(false);
+            GetComponent<Collider>().enabled = false;
         }
         else
         {
+            GetComponent<Collider>().enabled = true;
             timerText.gameObject.SetActive(true);
             m_objectiveProxy.gameObject.SetActive(true);
             m_objectiveProxy.SetShape(m_objective.GetShape());
@@ -109,17 +111,21 @@ public class PackageGateController : MonoBehaviour
             {
                 if (OnObjectiveExpired != null) OnObjectiveExpired(this, m_objective);
 
-                PackageController newObjective = FindValidObjective();
-                SetObjective(newObjective);
+                if (!m_game.IsGameOver())
+                {
+                    PackageController newObjective = FindValidObjective();
+                    SetObjective(newObjective);
+                }
+                else
+                {
+                    SetObjective(null);
+                }
             }
         }
 	}
 
     private void OnTriggerEnter(Collider other)
     {
-        if (m_objective == null)
-            return;
-
         PackageController package = other.GetComponent<PackageController>();
         if (package && package.canValidateWinCondition)
         {
