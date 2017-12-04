@@ -15,6 +15,8 @@ public class GameController : MonoBehaviour
     public float levelDuration = 30.0f;
     public float levelWarmUpDuration = 5.0f;
 
+    public WarpZone[] warpZonesToActivateOnWin;
+
     public int GetScore()
     {
         return m_score;
@@ -114,6 +116,19 @@ public class GameController : MonoBehaviour
         foreach (PackageSpawnerController spawner in m_spawners)
         {
             spawner.enabled = false;
+        }
+
+        // WIN
+        if (m_score >= oneStarScore)
+        {
+            foreach(WarpZone warpZone in warpZonesToActivateOnWin)
+            {
+                warpZone.SetWarpEnabled(true);
+            }
+        }
+        else // LOSE
+        {
+
         }
     }
 

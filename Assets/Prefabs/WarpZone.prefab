@@ -346,7 +346,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1006826034892026}
   m_LocalRotation: {x: -0, y: -0.38268447, z: -0, w: 0.92387915}
-  m_LocalPosition: {x: 0.08187294, y: -3.1221452, z: 5.1500006}
+  m_LocalPosition: {x: 2.8418741, y: -3.1221452, z: 5.1500006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4557056347691024}
@@ -756,7 +756,7 @@ MonoBehaviour:
   fadeOutTime: 0.7
   screenContent: {fileID: 1413570836795242}
   tractorBeam: {fileID: 114286903050141680}
-  light: {fileID: 0}
+  wind: {fileID: 1446744185338136}
 --- !u!114 &114636588198639526
 MonoBehaviour:
   m_ObjectHideFlags: 1
