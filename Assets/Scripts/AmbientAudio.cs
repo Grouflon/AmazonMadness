@@ -15,4 +15,9 @@ public class AmbientAudio : MonoBehaviour
         if (playMusic)
             AudioManager.Instance.Play("Mus_LevelStart", speaker.transform.position);
     }
+
+    void OnDestroy()
+    {
+        AudioManager.Instance.StopAll();
+    }
 }
