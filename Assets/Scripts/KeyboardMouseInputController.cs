@@ -12,6 +12,7 @@ public class KeyboardMouseInputController : InputController
 
     void Update()
     {
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (Cursor.lockState == CursorLockMode.Locked)
@@ -28,30 +29,17 @@ public class KeyboardMouseInputController : InputController
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
+#endif
     }
 
     public override float GetForwardAxis()
     {
-        float result = 0.0f;
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Z))
-            result += 1.0f;
-
-        if (Input.GetKey(KeyCode.S))
-            result -= 1.0f;
-
-        return result;
+        return Input.GetAxis("Vertical");
     }
 
     public override float GetRightAxis()
     {
-        float result = 0.0f;
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.Q))
-            result -= 1.0f;
-
-        if (Input.GetKey(KeyCode.D))
-            result += 1.0f;
-
-        return result;
+        return Input.GetAxis("Horizontal");
     }
 
     public override bool IsLookEnabled()
@@ -71,16 +59,16 @@ public class KeyboardMouseInputController : InputController
 
     public override bool IsGrabPressed()
     {
-        return Input.GetMouseButtonDown(0);
+        return Input.GetButtonDown("Grab");
     }
 
     public override bool IsGrabReleased()
     {
-        return Input.GetMouseButtonUp(0);
+        return Input.GetButtonUp("Grab");
     }
 
     public override bool IsJumpPressed()
     {
-        return Input.GetKeyDown(KeyCode.Space);
+        return Input.GetButtonDown("Jump");
     }
 }
