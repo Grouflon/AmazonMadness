@@ -667,10 +667,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Mus_LevelStart
   PlaybackMode: 0
-  AttenuationPrefab: {fileID: 1551532494301684, guid: 52c200ff8a357c64bbc5f052d0952663,
+  AttenuationPrefab: {fileID: 1156118140507754, guid: 7e4d039a48819064e82afc76ce7537de,
     type: 2}
-  Output: {fileID: 243994489037826410, guid: fab30f2b5b6b42441b925e3ad70a1e43, type: 2}
-  MaxDistance: 100
+  Output: {fileID: 243878080701556592, guid: fab30f2b5b6b42441b925e3ad70a1e43, type: 2}
+  MaxDistance: 30
   Clips:
   - {fileID: 8300000, guid: c1167ef355e384c45b62af862c2116d1, type: 3}
   MinDelay: 2.5
