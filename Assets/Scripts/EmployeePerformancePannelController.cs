@@ -31,9 +31,6 @@ public class EmployeePerformancePannelController : MonoBehaviour
         float negativeRatio = negativeRange / scoreRange;
         float positiveRatio = positiveRange / scoreRange;
 
-        Debug.Log(negativeRatio);
-        Debug.Log(positiveRatio);
-
         Vector3 negativeContainerScale = negativeBarContainer.localScale;
         negativeContainerScale.z = negativeRatio;
         negativeBarContainer.localScale = negativeContainerScale;

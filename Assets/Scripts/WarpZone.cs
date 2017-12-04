@@ -12,7 +12,7 @@ public class WarpZone : MonoBehaviour
     public GameObject screenContent;
 
     public TractorBeam tractorBeam;
-    public Light light;
+    public GameObject wind;
 
     public void SetWarpEnabled(bool _enabled)
     {
@@ -21,13 +21,13 @@ public class WarpZone : MonoBehaviour
         if (m_isWarpEnabled)
         {
             tractorBeam.gameObject.SetActive(true);
-            light.enabled = true;
+            wind.SetActive(true);
             screenContent.SetActive(true);
         }
         else
         {
             tractorBeam.gameObject.SetActive(false);
-            light.enabled = false;
+            wind.SetActive(false);
             screenContent.SetActive(false);
         }
     }
