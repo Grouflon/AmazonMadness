@@ -42,6 +42,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1172535426924920
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4220993763001016}
+  - component: {fileID: 114543930559371834}
+  m_Layer: 0
+  m_Name: Timer_Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1199381120946766
 GameObject:
   m_ObjectHideFlags: 1
@@ -53,6 +69,22 @@ GameObject:
   - component: {fileID: 114711999519362630}
   m_Layer: 0
   m_Name: Package_Impact_Mid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1310544306850162
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4220055171605930}
+  - component: {fileID: 114717152834035076}
+  m_Layer: 0
+  m_Name: Mus_LevelStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +115,7 @@ GameObject:
   - component: {fileID: 4507528645162510}
   - component: {fileID: 114742967023816828}
   m_Layer: 0
-  m_Name: Timer_Start
+  m_Name: Timer_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,6 +163,22 @@ GameObject:
   - component: {fileID: 114255836774983378}
   m_Layer: 0
   m_Name: Gate_TimeOut
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1706917910817466
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4796097682032786}
+  - component: {fileID: 114207216349302792}
+  m_Layer: 0
+  m_Name: EndGame_Win
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,7 +319,7 @@ GameObject:
   - component: {fileID: 4859008206932222}
   - component: {fileID: 114484664418678438}
   m_Layer: 0
-  m_Name: Mus_LevelStart
+  m_Name: EndGame_Loose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -322,6 +370,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4220055171605930}
+  - {fileID: 4796097682032786}
   - {fileID: 4859008206932222}
   m_Father: {fileID: 4160378820645924}
   m_RootOrder: 5
@@ -355,6 +405,32 @@ Transform:
   m_Father: {fileID: 4160378820645924}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4220055171605930
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1310544306850162}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4210432633574986}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4220993763001016
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1172535426924920}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4260432307470342}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4260432307470342
 Transform:
   m_ObjectHideFlags: 1
@@ -365,6 +441,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4220993763001016}
   - {fileID: 4507528645162510}
   m_Father: {fileID: 4160378820645924}
   m_RootOrder: 4
@@ -456,12 +533,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1337564552297214}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4260432307470342}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4535888456501580
 Transform:
@@ -488,6 +565,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4980578667843016}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4796097682032786
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1706917910817466}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4210432633574986}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4796150332589300
 Transform:
@@ -526,7 +616,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4210432633574986}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4980578667843016
 Transform:
@@ -544,6 +634,41 @@ Transform:
   m_Father: {fileID: 4160378820645924}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114207216349302792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1706917910817466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: EndGame_Win
+  PlaybackMode: 1
+  AttenuationPrefab: {fileID: 1156118140507754, guid: 7e4d039a48819064e82afc76ce7537de,
+    type: 2}
+  Output: {fileID: 243878080701556592, guid: fab30f2b5b6b42441b925e3ad70a1e43, type: 2}
+  MaxDistance: 30
+  Clips:
+  - {fileID: 8300000, guid: b147ebf487dcf1f4e980447efaa99070, type: 3}
+  MinDelay: 2.5
+  MaxDelay: 2.5
+  FadeInTime: 0.5
+  FadeOutTime: 1
+  MinVolume: 1
+  MaxVolume: 1
+  MinPitch: 1
+  MaxPitch: 1
+  MinSpawnTime: 0
+  MaxSpawnTime: 0
+  GranularSpawnPositionRandomness: 0
+  OverridePositionToListener: 0
+  RandomStartPosition: 0
+  PlayingInstances: []
+  Fading: 0
+  isPlaying: 0
 --- !u!114 &114255836774983378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -665,18 +790,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Mus_LevelStart
-  PlaybackMode: 0
+  Name: EndGame_Loose
+  PlaybackMode: 1
   AttenuationPrefab: {fileID: 1156118140507754, guid: 7e4d039a48819064e82afc76ce7537de,
     type: 2}
   Output: {fileID: 243878080701556592, guid: fab30f2b5b6b42441b925e3ad70a1e43, type: 2}
   MaxDistance: 30
   Clips:
-  - {fileID: 8300000, guid: c1167ef355e384c45b62af862c2116d1, type: 3}
+  - {fileID: 8300000, guid: a52bcaeeebfb741429f099e00eb6cdef, type: 3}
   MinDelay: 2.5
   MaxDelay: 2.5
-  FadeInTime: 0
-  FadeOutTime: 0
+  FadeInTime: 0.5
+  FadeOutTime: 1
   MinVolume: 1
   MaxVolume: 1
   MinPitch: 1
@@ -685,7 +810,7 @@ MonoBehaviour:
   MaxSpawnTime: 0
   GranularSpawnPositionRandomness: 0
   OverridePositionToListener: 0
-  RandomStartPosition: 0
+  RandomStartPosition: 1
   PlayingInstances: []
   Fading: 0
   isPlaying: 0
@@ -710,6 +835,41 @@ MonoBehaviour:
     Name: 
     Sounds: []
   PlayingSounds: []
+--- !u!114 &114543930559371834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1172535426924920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Timer_Start
+  PlaybackMode: 0
+  AttenuationPrefab: {fileID: 1551532494301684, guid: 52c200ff8a357c64bbc5f052d0952663,
+    type: 2}
+  Output: {fileID: 24300002, guid: fab30f2b5b6b42441b925e3ad70a1e43, type: 2}
+  MaxDistance: 100
+  Clips:
+  - {fileID: 8300000, guid: 0b37b8f0519046c4fa1e57295b96ee0b, type: 3}
+  MinDelay: 0
+  MaxDelay: 0
+  FadeInTime: 0
+  FadeOutTime: 0
+  MinVolume: 0.3
+  MaxVolume: 0.3
+  MinPitch: 0.9
+  MaxPitch: 1
+  MinSpawnTime: 0
+  MaxSpawnTime: 0
+  GranularSpawnPositionRandomness: 0
+  OverridePositionToListener: 0
+  RandomStartPosition: 0
+  PlayingInstances: []
+  Fading: 0
+  isPlaying: 0
 --- !u!114 &114560311541010264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -821,6 +981,41 @@ MonoBehaviour:
   PlayingInstances: []
   Fading: 0
   isPlaying: 0
+--- !u!114 &114717152834035076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1310544306850162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Mus_LevelStart
+  PlaybackMode: 0
+  AttenuationPrefab: {fileID: 1156118140507754, guid: 7e4d039a48819064e82afc76ce7537de,
+    type: 2}
+  Output: {fileID: 243878080701556592, guid: fab30f2b5b6b42441b925e3ad70a1e43, type: 2}
+  MaxDistance: 30
+  Clips:
+  - {fileID: 8300000, guid: c1167ef355e384c45b62af862c2116d1, type: 3}
+  MinDelay: 2.5
+  MaxDelay: 2.5
+  FadeInTime: 0
+  FadeOutTime: 0
+  MinVolume: 1
+  MaxVolume: 1
+  MinPitch: 1
+  MaxPitch: 1
+  MinSpawnTime: 0
+  MaxSpawnTime: 0
+  GranularSpawnPositionRandomness: 0
+  OverridePositionToListener: 0
+  RandomStartPosition: 0
+  PlayingInstances: []
+  Fading: 0
+  isPlaying: 0
 --- !u!114 &114725563942918656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -870,20 +1065,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367f285478ace0e4591e4656083f92ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Timer_Start
+  Name: Timer_End
   PlaybackMode: 0
   AttenuationPrefab: {fileID: 1551532494301684, guid: 52c200ff8a357c64bbc5f052d0952663,
     type: 2}
   Output: {fileID: 24300002, guid: fab30f2b5b6b42441b925e3ad70a1e43, type: 2}
   MaxDistance: 100
   Clips:
-  - {fileID: 8300000, guid: 0b37b8f0519046c4fa1e57295b96ee0b, type: 3}
+  - {fileID: 8300000, guid: 3eccfdd7ae6ed88499b4889c904bd16c, type: 3}
   MinDelay: 0
   MaxDelay: 0
   FadeInTime: 0
   FadeOutTime: 0
-  MinVolume: 0.6
-  MaxVolume: 0.6
+  MinVolume: 0.3
+  MaxVolume: 0.3
   MinPitch: 0.9
   MaxPitch: 1
   MinSpawnTime: 0
