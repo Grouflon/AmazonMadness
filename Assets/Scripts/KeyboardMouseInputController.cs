@@ -24,12 +24,12 @@ public class KeyboardMouseInputController : InputController
                 Cursor.lockState = CursorLockMode.Locked;
             }
         }
+#endif
 
         if (Input.GetMouseButtonDown(0))
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
-#endif
     }
 
     public override float GetForwardAxis()
